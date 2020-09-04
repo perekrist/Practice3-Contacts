@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		00819A41A665809B074D131E /* Pods_Practice2_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6403CFC53E9B7666C8F7D679 /* Pods_Practice2_Contacts.framework */; };
 		CA427B14250215800094DD36 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B13250215800094DD36 /* R.generated.swift */; };
+		CA427B18250216070094DD36 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B17250216070094DD36 /* Coordinator.swift */; };
+		CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B19250216280094DD36 /* AppCoordinator.swift */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3424CC89200039C72B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3324CC89200039C72B /* SceneDelegate.swift */; };
 		CABF3E3624CC89200039C72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3524CC89200039C72B /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 		76A224F2B5E4096FC17F670A /* Pods-Practice2-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice2-Contacts.debug.xcconfig"; path = "Target Support Files/Pods-Practice2-Contacts/Pods-Practice2-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2F188DB31B059103E305F1 /* Pods-Practice2-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice2-Contacts.release.xcconfig"; path = "Target Support Files/Pods-Practice2-Contacts/Pods-Practice2-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 		CA427B13250215800094DD36 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		CA427B17250216070094DD36 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CA427B19250216280094DD36 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3324CC89200039C72B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		CA427B15250215D00094DD36 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA427B16250215E20094DD36 /* Stings */,
+				CABF3E3A24CC89280039C72B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA427B16250215E20094DD36 /* Stings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stings;
+			sourceTree = "<group>";
+		};
 		CABF3E2524CC89200039C72B = {
 			isa = PBXGroup;
 			children = (
@@ -91,13 +111,15 @@
 		CABF3E3024CC89200039C72B /* Practice2-Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				CA427B15250215D00094DD36 /* Resources */,
 				CABF3E3124CC89200039C72B /* AppDelegate.swift */,
 				CABF3E3324CC89200039C72B /* SceneDelegate.swift */,
 				CABF3E3524CC89200039C72B /* ViewController.swift */,
 				CABF3E3724CC89200039C72B /* Main.storyboard */,
-				CABF3E3A24CC89280039C72B /* Assets.xcassets */,
 				CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */,
 				CABF3E3F24CC89280039C72B /* Info.plist */,
+				CA427B17250216070094DD36 /* Coordinator.swift */,
+				CA427B19250216280094DD36 /* AppCoordinator.swift */,
 			);
 			path = "Practice2-Contacts";
 			sourceTree = "<group>";
@@ -255,8 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */,
 				CABF3E3624CC89200039C72B /* ViewController.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,
+				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CABF3E3424CC89200039C72B /* SceneDelegate.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
 			);
