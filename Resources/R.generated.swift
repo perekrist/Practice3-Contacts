@@ -105,6 +105,53 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
+  struct string {
+    /// This `R.string.contact` struct is generated, and contains static references to 1 localization keys.
+    struct contact {
+      /// Value: Contacts
+      static let bacButtonTitle = Rswift.StringResource(key: "bacButtonTitle", tableName: "Contact", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Contacts
+      static func bacButtonTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("bacButtonTitle", tableName: "Contact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Contact", preferredLanguages: preferredLanguages) else {
+          return "bacButtonTitle"
+        }
+
+        return NSLocalizedString("bacButtonTitle", tableName: "Contact", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.contactsList` struct is generated, and contains static references to 1 localization keys.
+    struct contactsList {
+      /// Value: Contacts
+      static let navBarTitle = Rswift.StringResource(key: "navBarTitle", tableName: "ContactsList", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Contacts
+      static func navBarTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("navBarTitle", tableName: "ContactsList", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "ContactsList", preferredLanguages: preferredLanguages) else {
+          return "navBarTitle"
+        }
+
+        return NSLocalizedString("navBarTitle", tableName: "ContactsList", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
