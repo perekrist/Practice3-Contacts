@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		00819A41A665809B074D131E /* Pods_Practice2_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6403CFC53E9B7666C8F7D679 /* Pods_Practice2_Contacts.framework */; };
+		CA427B14250215800094DD36 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B13250215800094DD36 /* R.generated.swift */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3424CC89200039C72B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3324CC89200039C72B /* SceneDelegate.swift */; };
 		CABF3E3624CC89200039C72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3524CC89200039C72B /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 		6403CFC53E9B7666C8F7D679 /* Pods_Practice2_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice2_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A224F2B5E4096FC17F670A /* Pods-Practice2-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice2-Contacts.debug.xcconfig"; path = "Target Support Files/Pods-Practice2-Contacts/Pods-Practice2-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2F188DB31B059103E305F1 /* Pods-Practice2-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice2-Contacts.release.xcconfig"; path = "Target Support Files/Pods-Practice2-Contacts/Pods-Practice2-Contacts.release.xcconfig"; sourceTree = "<group>"; };
+		CA427B13250215800094DD36 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3324CC89200039C72B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +50,6 @@
 				76A224F2B5E4096FC17F670A /* Pods-Practice2-Contacts.debug.xcconfig */,
 				8F2F188DB31B059103E305F1 /* Pods-Practice2-Contacts.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -60,9 +61,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CA427B12250215800094DD36 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA427B13250215800094DD36 /* R.generated.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CABF3E2524CC89200039C72B = {
 			isa = PBXGroup;
 			children = (
+				CA427B12250215800094DD36 /* Resources */,
 				CABF3E3024CC89200039C72B /* Practice2-Contacts */,
 				CABF3E2F24CC89200039C72B /* Products */,
 				48A16B6E4623F66CEC19A866 /* Pods */,
@@ -100,6 +110,8 @@
 			buildConfigurationList = CABF3E4224CC89280039C72B /* Build configuration list for PBXNativeTarget "Practice2-Contacts" */;
 			buildPhases = (
 				14E20DE5A2A0AD7393BF08A9 /* [CP] Check Pods Manifest.lock */,
+				CA427B102502151E0094DD36 /* ShellScript */,
+				CA427B11250215460094DD36 /* ShellScript */,
 				CABF3E2A24CC89200039C72B /* Sources */,
 				CABF3E2B24CC89200039C72B /* Frameworks */,
 				CABF3E2C24CC89200039C72B /* Resources */,
@@ -200,6 +212,42 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Practice2-Contacts/Pods-Practice2-Contacts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CA427B102502151E0094DD36 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Resources/R.generated.swift\"\n";
+		};
+		CA427B11250215460094DD36 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,6 +258,7 @@
 				CABF3E3624CC89200039C72B /* ViewController.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,
 				CABF3E3424CC89200039C72B /* SceneDelegate.swift in Sources */,
+				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
