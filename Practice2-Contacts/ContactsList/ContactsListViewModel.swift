@@ -9,7 +9,11 @@
 import UIKit
 
 class ContactsListViewModel {
-    var contacts: [Contact] = [Contact(name: "Thomas", surName: "Anderson"),
+    private let sectionHeight: CGFloat = 28
+    private let sectionCount: Int = 27
+    private let collation = UILocalizedIndexedCollation.current()
+    
+    private var contacts: [Contact] = [Contact(name: "Thomas", surName: "Anderson"),
                                Contact(name: "Holden", surName: "Colfield"),
                                Contact(name: "Will", surName: "Baarda"),
                                Contact(name: "Milton", surName: "Aaron"),
@@ -22,15 +26,13 @@ class ContactsListViewModel {
                                Contact(name: "Kristina", surName: "Peregudova"),
                                Contact(name: "Maxim", surName: "Sachuk")]
     
-    private let collation = UILocalizedIndexedCollation.current()
-    
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray
         return sectionTitles.object(at: section) as? String
     }
     
     func numberOfSections() -> Int {
-        return 27
+        return sectionCount
     }
     
     func numberOfRowsIn(section: Int) -> Int {
@@ -42,10 +44,7 @@ class ContactsListViewModel {
     }
     
     func heightOfSection(section: Int) -> CGFloat {
-        let contactsCount = rowContactsCount(sectionName: sectionTitle(section: section) ?? "A")
-        if contactsCount == 0 {
-            return 0
-        } else { return 28 }
+        return rowContactsCount(sectionName: sectionTitle(section: section) ?? "A") == 0 ? 0 : sectionHeight
     }
     
     func cellTitle(indexPath: IndexPath) -> NSAttributedString {
@@ -61,12 +60,8 @@ class ContactsListViewModel {
     }
     
     private func rowContactsCount(sectionName: String) -> Int {
-        var count = 0
-        for contact in contacts {
-            if contact.surName.starts(with: sectionName) {
-                count += 1
-            }
-        }
-        return count
+        return contacts.filter { (contact: Contact) -> Bool in
+            contact.surName.starts(with: sectionName)
+        }.count
     }
 }
