@@ -29,7 +29,7 @@ class ContactsListViewModel {
     }
     
     func numberOfRowsIn(section: Int) -> Int {
-        return 2
+        return rowContactsCount(sectionName: sectionTitle(section: section) ?? "A")
     }
     
     func sectionIndexTitles() -> [String] {
@@ -37,6 +37,20 @@ class ContactsListViewModel {
     }
     
     func heightOfSection(section: Int) -> CGFloat {
-        return 28
+        let contactsCount = rowContactsCount(sectionName: sectionTitle(section: section) ?? "A")
+        if contactsCount == 0 {
+            return 0
+        } else { return 28 }
     }
+    
+    private func rowContactsCount(sectionName: String) -> Int {
+        var count = 0
+        for contact in contacts {
+            if contact.surName.starts(with: sectionName) {
+                count += 1
+            }
+        }
+        return count
+    }
+        
 }
