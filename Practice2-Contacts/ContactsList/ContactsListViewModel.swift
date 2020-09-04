@@ -15,16 +15,20 @@ class ContactsListViewModel {
     
     private var contacts: [Contact] = [Contact(name: "Thomas", surName: "Anderson"),
                                Contact(name: "Holden", surName: "Colfield"),
-                               Contact(name: "Will", surName: "Baarda"),
+                               Contact(name: "Abill", surName: "Baarda"),
                                Contact(name: "Milton", surName: "Aaron"),
                                Contact(name: "Pauline", surName: "Banister"),
                                Contact(name: "Kristina", surName: "Leregudova"),
                                Contact(name: "Holden", surName: "Folfield"),
-                               Contact(name: "Will", surName: "Baarda"),
+                               Contact(name: "Brill", surName: "Baarda"),
                                Contact(name: "Milton", surName: "Xaron"),
                                Contact(name: "Pauline", surName: "Sanister"),
                                Contact(name: "Kristina", surName: "Peregudova"),
                                Contact(name: "Maxim", surName: "Sachuk")]
+    
+    init() {
+        contacts.sort { $0.name < $1.name }
+    }
     
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray
