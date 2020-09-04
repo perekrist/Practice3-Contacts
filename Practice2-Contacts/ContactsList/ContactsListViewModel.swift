@@ -14,6 +14,11 @@ class ContactsListViewModel {
                                Contact(name: "Will", surName: "Baarda"),
                                Contact(name: "Milton", surName: "Aaron"),
                                Contact(name: "Pauline", surName: "Banister"),
+                               Contact(name: "Kristina", surName: "Leregudova"),
+                               Contact(name: "Holden", surName: "Folfield"),
+                               Contact(name: "Will", surName: "Baarda"),
+                               Contact(name: "Milton", surName: "Xaron"),
+                               Contact(name: "Pauline", surName: "Sanister"),
                                Contact(name: "Kristina", surName: "Peregudova"),
                                Contact(name: "Maxim", surName: "Sachuk")]
     
@@ -52,5 +57,12 @@ class ContactsListViewModel {
         }
         return count
     }
-        
+    
+    func getContact(indexPath: IndexPath) -> Contact {
+        let sectionContacts = contacts.filter { (contact: Contact) -> Bool in
+            return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
+        }
+        return sectionContacts[indexPath.row]
+    }
+    
 }

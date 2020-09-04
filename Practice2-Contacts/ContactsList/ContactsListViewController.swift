@@ -82,7 +82,9 @@ extension ContactsListViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let contact = viewModel.getContact(indexPath: indexPath)
         let cell = UITableViewCell(frame: .zero)
+        cell.textLabel?.text = "\(contact.name) \(contact.surName)"
         return cell
     }
     
