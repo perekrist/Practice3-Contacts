@@ -20,6 +20,10 @@ class AppCoordinator: Coordinator {
     }
     
     override func start() {
+        let coordinator = ContactsListCoordinator(rootViewController: rootViewController)
+        self.addChildCoordinator(coordinator)
+        coordinator.start()
+        
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
