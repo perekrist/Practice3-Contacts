@@ -18,6 +18,7 @@
 		CA427B2A25021CAD0094DD36 /* Contact.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA427B2925021CAD0094DD36 /* Contact.strings */; };
 		CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B2C25021FD90094DD36 /* ErrorAlert.swift */; };
 		CA427B2F25021FFA0094DD36 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA427B2E25021FF90094DD36 /* Common.strings */; };
+		CA427B32250231E40094DD36 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B31250231E40094DD36 /* Contact.swift */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -37,6 +38,7 @@
 		CA427B2925021CAD0094DD36 /* Contact.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Contact.strings; sourceTree = "<group>"; };
 		CA427B2C25021FD90094DD36 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		CA427B2E25021FF90094DD36 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
+		CA427B31250231E40094DD36 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CA427B30250231D20094DD36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA427B31250231E40094DD36 /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CABF3E2524CC89200039C72B = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		CABF3E3024CC89200039C72B /* Practice2-Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				CA427B30250231D20094DD36 /* Models */,
 				CA427B15250215D00094DD36 /* Resources */,
 				CA427B2B25021FC10094DD36 /* Extensions */,
 				CA427B20250219430094DD36 /* ContactsList */,
@@ -307,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA427B32250231E40094DD36 /* Contact.swift in Sources */,
 				CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */,
 				CA427B24250219730094DD36 /* ContactsListViewModel.swift in Sources */,
 				CA427B22250219660094DD36 /* ContactsListCoordinator.swift in Sources */,

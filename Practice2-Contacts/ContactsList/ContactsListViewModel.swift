@@ -9,8 +9,13 @@
 import UIKit
 
 class ContactsListViewModel {
-    var onDidUpdate: (() -> Void)?
-    var onDidError: ((Error) -> Void)?
+    var contacts: [Contact] = [Contact(name: "Thomas", surName: "Anderson"),
+                               Contact(name: "Holden", surName: "Colfield"),
+                               Contact(name: "Will", surName: "Baarda"),
+                               Contact(name: "Milton", surName: "Aaron"),
+                               Contact(name: "Pauline", surName: "Banister"),
+                               Contact(name: "Kristina", surName: "Peregudova"),
+                               Contact(name: "Maxim", surName: "Sachuk")]
     
     private let collation = UILocalizedIndexedCollation.current()
     
@@ -20,15 +25,15 @@ class ContactsListViewModel {
     }
     
     func numberOfSections() -> Int {
-      return 27
+        return 27
     }
     
     func numberOfRowsIn(section: Int) -> Int {
-      return 2
+        return 2
     }
     
     func sectionIndexTitles() -> [String] {
-      return collation.sectionIndexTitles
+        return collation.sectionIndexTitles
     }
     
     func heightOfSection(section: Int) -> CGFloat {
