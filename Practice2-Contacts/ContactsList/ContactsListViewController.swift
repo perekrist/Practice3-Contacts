@@ -63,8 +63,6 @@ extension ContactsListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         guard !text.isEmpty else { return }
-        
-        print(text)
     }
 }
 
@@ -84,7 +82,13 @@ extension ContactsListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let contact = viewModel.getContact(indexPath: indexPath)
         let cell = UITableViewCell(frame: .zero)
-        cell.textLabel?.text = "\(contact.name) \(contact.surName)"
+        
+        let attrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
+        let attributedString = NSMutableAttributedString(string: contact.name + " ")
+        attributedString.append(NSMutableAttributedString(string: contact.surName, attributes: attrs))
+
+        cell.textLabel?.attributedText = attributedString
+        
         return cell
     }
     

@@ -48,6 +48,13 @@ class ContactsListViewModel {
         } else { return 28 }
     }
     
+    func getContact(indexPath: IndexPath) -> Contact {
+        let sectionContacts = contacts.filter { (contact: Contact) -> Bool in
+            return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
+        }
+        return sectionContacts[indexPath.row]
+    }
+    
     private func rowContactsCount(sectionName: String) -> Int {
         var count = 0
         for contact in contacts {
@@ -57,12 +64,4 @@ class ContactsListViewModel {
         }
         return count
     }
-    
-    func getContact(indexPath: IndexPath) -> Contact {
-        let sectionContacts = contacts.filter { (contact: Contact) -> Bool in
-            return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
-        }
-        return sectionContacts[indexPath.row]
-    }
-    
 }
