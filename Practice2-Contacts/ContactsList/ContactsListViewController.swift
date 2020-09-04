@@ -31,7 +31,7 @@ class ContactsListViewController: UITableViewController {
 
 extension ContactsListViewController {
     func initialSetup() {
-        view.backgroundColor = .lightGray
+        view.backgroundColor = #colorLiteral(red: 0.9249437451, green: 0.9250733852, blue: 0.9249027371, alpha: 1)
         setupNavigationBar()
     }
     
@@ -50,8 +50,13 @@ extension ContactsListViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.addButton(),
                                                             style: .plain,
                                                             target: self,
-                                                            action: #selector(viewModel.addContact))
+                                                            action: #selector(addContact))
     }
+    
+    @objc func addContact() {
+        print("created")
+    }
+    
 }
 
 extension ContactsListViewController: UISearchResultsUpdating {
@@ -73,7 +78,7 @@ extension ContactsListViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "title"
+        return viewModel.sectionTitle(section: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

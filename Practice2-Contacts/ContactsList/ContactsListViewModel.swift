@@ -13,17 +13,18 @@ class ContactsListViewModel {
     var onDidError: ((Error) -> Void)?
     
     private let collation = UILocalizedIndexedCollation.current()
-
-    @objc func addContact() {
-        print("created")
+    
+    func sectionTitle(section: Int) -> String? {
+        let sectionTitles = collation.sectionTitles as NSArray
+        return sectionTitles.object(at: section) as? String
     }
     
     func numberOfSections() -> Int {
-      return 10
+      return 27
     }
     
     func numberOfRowsIn(section: Int) -> Int {
-      return section
+      return 2
     }
     
     func sectionIndexTitles() -> [String] {
