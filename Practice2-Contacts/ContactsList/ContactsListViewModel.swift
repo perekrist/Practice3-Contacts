@@ -48,11 +48,16 @@ class ContactsListViewModel {
         } else { return 28 }
     }
     
-    func getContact(indexPath: IndexPath) -> Contact {
+    func cellTitle(indexPath: IndexPath) -> NSAttributedString {
         let sectionContacts = contacts.filter { (contact: Contact) -> Bool in
             return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
         }
-        return sectionContacts[indexPath.row]
+        let contact = sectionContacts[indexPath.row]
+        let attrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
+        let attributedString = NSMutableAttributedString(string: contact.name + " ")
+        attributedString.append(NSMutableAttributedString(string: contact.surName, attributes: attrs))
+        
+        return attributedString
     }
     
     private func rowContactsCount(sectionName: String) -> Int {

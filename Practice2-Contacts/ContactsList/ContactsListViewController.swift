@@ -80,14 +80,8 @@ extension ContactsListViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let contact = viewModel.getContact(indexPath: indexPath)
         let cell = UITableViewCell(frame: .zero)
-        
-        let attrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
-        let attributedString = NSMutableAttributedString(string: contact.name + " ")
-        attributedString.append(NSMutableAttributedString(string: contact.surName, attributes: attrs))
-
-        cell.textLabel?.attributedText = attributedString
+        cell.textLabel?.attributedText = viewModel.cellTitle(indexPath: indexPath)
         
         return cell
     }
