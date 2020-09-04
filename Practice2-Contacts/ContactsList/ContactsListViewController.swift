@@ -9,8 +9,10 @@
 import UIKit
 import SnapKit
 
-class ContactsListViewController: UIViewController {
+class ContactsListViewController: UITableViewController {
     private let viewModel: ContactsListViewModel
+    
+    private lazy var searchController = UISearchController(searchResultsController: nil)
     
     init(viewModel: ContactsListViewModel) {
         self.viewModel = viewModel
@@ -42,20 +44,14 @@ extension ContactsListViewController {
                                                            target: nil,
                                                            action: nil)
         
-        let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.addButton(),
                                                             style: .plain,
                                                             target: self,
-                                                            action: #selector(addContact))
+                                                            action: #selector(viewModel.addContact))
     }
-    
-    @objc private func addContact() {
-        print("created")
-    }
-    
 }
 
 extension ContactsListViewController: UISearchResultsUpdating {
@@ -64,5 +60,36 @@ extension ContactsListViewController: UISearchResultsUpdating {
         guard !text.isEmpty else { return }
         
         print(text)
+    }
+}
+
+extension ContactsListViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsIn(section: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "title"
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(frame: .zero)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return viewModel.heightOfSection(section: section)
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return viewModel.sectionIndexTitles()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }

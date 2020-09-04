@@ -120,8 +120,44 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
   struct string {
+    /// This `R.string.common` struct is generated, and contains static references to 2 localization keys.
+    struct common {
+      /// Value: An error has occurred
+      static let errorTitle = Rswift.StringResource(key: "errorTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ok
+      static let okTitle = Rswift.StringResource(key: "okTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: An error has occurred
+      static func errorTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("errorTitle", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "errorTitle"
+        }
+
+        return NSLocalizedString("errorTitle", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ok
+      static func okTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("okTitle", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "okTitle"
+        }
+
+        return NSLocalizedString("okTitle", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
     /// This `R.string.contact` struct is generated, and contains static references to 1 localization keys.
     struct contact {
       /// Value: Contacts

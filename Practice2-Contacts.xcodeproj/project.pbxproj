@@ -16,6 +16,8 @@
 		CA427B26250219810094DD36 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B25250219810094DD36 /* ContactsListViewController.swift */; };
 		CA427B2825021BF40094DD36 /* ContactsList.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA427B2725021BF40094DD36 /* ContactsList.strings */; };
 		CA427B2A25021CAD0094DD36 /* Contact.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA427B2925021CAD0094DD36 /* Contact.strings */; };
+		CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B2C25021FD90094DD36 /* ErrorAlert.swift */; };
+		CA427B2F25021FFA0094DD36 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA427B2E25021FF90094DD36 /* Common.strings */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -33,6 +35,8 @@
 		CA427B25250219810094DD36 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		CA427B2725021BF40094DD36 /* ContactsList.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ContactsList.strings; sourceTree = "<group>"; };
 		CA427B2925021CAD0094DD36 /* Contact.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Contact.strings; sourceTree = "<group>"; };
+		CA427B2C25021FD90094DD36 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		CA427B2E25021FF90094DD36 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				CA427B2725021BF40094DD36 /* ContactsList.strings */,
 				CA427B2925021CAD0094DD36 /* Contact.strings */,
+				CA427B2E25021FF90094DD36 /* Common.strings */,
 			);
 			path = Stings;
 			sourceTree = "<group>";
@@ -103,6 +108,14 @@
 				CA427B21250219660094DD36 /* ContactsListCoordinator.swift */,
 			);
 			path = ContactsList;
+			sourceTree = "<group>";
+		};
+		CA427B2B25021FC10094DD36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA427B2C25021FD90094DD36 /* ErrorAlert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CABF3E2524CC89200039C72B = {
@@ -128,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				CA427B15250215D00094DD36 /* Resources */,
+				CA427B2B25021FC10094DD36 /* Extensions */,
 				CA427B20250219430094DD36 /* ContactsList */,
 				CABF3E3124CC89200039C72B /* AppDelegate.swift */,
 				CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */,
@@ -200,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA427B2F25021FFA0094DD36 /* Common.strings in Resources */,
 				CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */,
 				CA427B2825021BF40094DD36 /* ContactsList.strings in Resources */,
 				CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */,
@@ -297,6 +312,7 @@
 				CA427B22250219660094DD36 /* ContactsListCoordinator.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,
 				CA427B26250219810094DD36 /* ContactsListViewController.swift in Sources */,
+				CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */,
 				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
 			);
