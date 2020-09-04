@@ -45,6 +45,15 @@ extension ContactsListViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.addButton(),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(addContact))
+    }
+    
+    @objc private func addContact() {
+        print("created")
     }
     
 }
