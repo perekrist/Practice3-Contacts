@@ -11,6 +11,8 @@ import SnapKit
 import UIKit
 
 class CreateContactView: UIView {
+    var imagePicker: ImagePicker?
+    
     private var nameTextField = UITextField()
     private var surNameTextField = UITextField()
     private var phoneTextField = UITextField()
@@ -26,8 +28,18 @@ extension CreateContactView {
     private func initial() {
         self.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         setupTextFields()
-        setuoAvatarPlaceholder()
+        setupImagePicker()
         setupConstraints()
+    }
+    
+    func setup(imagePicker: ImagePicker) {
+        self.imagePicker = imagePicker
+    }
+    
+    func setImage(image: UIImage) {
+        avatarButton.setImage(image, for: .normal)
+        avatarButton.layer.cornerRadius = avatarButton.bounds.size.width / 2
+        avatarButton.clipsToBounds = true
     }
     
     private func setupTextFields() {
@@ -44,9 +56,12 @@ extension CreateContactView {
         noteTextField.addBottomBorder()
     }
     
-    private func setuoAvatarPlaceholder() {
+    private func setupImagePicker() {
+        avatarButton.layer.cornerRadius = avatarButton.bounds.size.width / 2
+        avatarButton.clipsToBounds = true
         avatarButton.setImage(R.image.plus(), for: .normal)
         avatarButton.setBackgroundImage(R.image.circule(), for: .normal)
+        avatarButton.addTarget(self, action: #selector(CreateContactViewController.imagePickerTapped), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -54,6 +69,8 @@ extension CreateContactView {
         avatarButton.snp.makeConstraints { make in
             make.leading.equalTo(16)
             make.top.equalTo(24)
+            make.height.equalTo(86)
+            make.width.equalTo(86)
         }
         
         let mainInfoVStack = UIStackView(arrangedSubviews: [nameTextField, surNameTextField])

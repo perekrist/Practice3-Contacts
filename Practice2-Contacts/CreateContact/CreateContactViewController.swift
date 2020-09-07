@@ -12,6 +12,7 @@ import SnapKit
 
 class CreateContactViewController: UIViewController {
     private let viewModel: CreateContactViewModel
+    private var imagePicker: ImagePicker!
     private var createContactView = CreateContactView()
     
     init(viewModel: CreateContactViewModel) {
@@ -26,6 +27,8 @@ class CreateContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        self.createContactView.setup(imagePicker: imagePicker)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +59,7 @@ extension CreateContactViewController {
                                                            action: #selector(cancelTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                             target: self,
-                                                            action: #selector(doneTapped))
+                                                            action: #selector(imagePickerTapped))
         navigationItem.leftBarButtonItem?.tintColor = UIColor.systemBlue
         navigationItem.rightBarButtonItem?.tintColor = UIColor.systemBlue
     }
@@ -67,5 +70,16 @@ extension CreateContactViewController {
     
     @objc func doneTapped() {
         print("done")
+    }
+    
+    @objc func imagePickerTapped(sender: UIButton) {
+        print("image")
+        self.imagePicker.present(from: sender)
+    }
+}
+
+extension CreateContactViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        self.createContactView.setImage(image: image!)
     }
 }
