@@ -27,11 +27,18 @@ class CreateContactViewController: UIViewController {
         super.viewDidLoad()
         initialSetup()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
+    }
 }
 
 extension CreateContactViewController {
     private func initialSetup() {
         view.backgroundColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
+        navBarButtons()
         setupConstraints()
     }
     
@@ -41,5 +48,24 @@ extension CreateContactViewController {
             make.top.equalTo(100)
             make.leading.equalToSuperview()
         }
+    }
+    
+    private func navBarButtons() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                           target: self,
+                                                           action: #selector(cancelTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                            target: self,
+                                                            action: #selector(doneTapped))
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.systemBlue
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.systemBlue
+    }
+    
+    @objc func cancelTapped() {
+        print("cancel")
+    }
+    
+    @objc func doneTapped() {
+        print("done")
     }
 }

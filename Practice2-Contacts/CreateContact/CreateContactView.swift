@@ -70,7 +70,7 @@ extension CreateContactView {
         
         self.addSubview(additionalInfoVStack)
         additionalInfoVStack.snp.makeConstraints { make in
-            make.top.equalTo(avatarButton.snp.bottom).offset(-24)
+            make.top.equalTo(avatarButton.snp.bottom).offset(24)
             make.leading.equalTo(avatarButton.snp.leading)
         }
     }
