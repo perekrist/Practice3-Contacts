@@ -65,6 +65,7 @@ extension CreateContactView {
         nameTextField.addBottomBorder()
         surNameTextField.addBottomBorder()
         noteTextField.addBottomBorder()
+        
     }
     
     private func setupImagePicker() {
