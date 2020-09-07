@@ -14,7 +14,6 @@
 		CA5B34EB250606CC00335C37 /* CreateContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */; };
 		CA5B34ED250606DB00335C37 /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */; };
 		CA5B34EF250606F100335C37 /* CreateContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */; };
-		CA5B34F12506098900335C37 /* CreateContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F02506098900335C37 /* CreateContactView.swift */; };
 		CA5B34F4250609AC00335C37 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F3250609AC00335C37 /* Contact.swift */; };
 		CA5B34F8250617BA00335C37 /* TextFieldBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */; };
 		CA5B34FA25061C3000335C37 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F925061C3000335C37 /* ImagePicker.swift */; };
@@ -34,7 +33,6 @@
 		CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewModel.swift; sourceTree = "<group>"; };
 		CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
 		CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactCoordinator.swift; sourceTree = "<group>"; };
-		CA5B34F02506098900335C37 /* CreateContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactView.swift; sourceTree = "<group>"; };
 		CA5B34F3250609AC00335C37 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBottomBorder.swift; sourceTree = "<group>"; };
 		CA5B34F925061C3000335C37 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			children = (
 				CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */,
 				CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */,
-				CA5B34F02506098900335C37 /* CreateContactView.swift */,
 				CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */,
 				CA5B34F925061C3000335C37 /* ImagePicker.swift */,
 			);
@@ -323,7 +320,6 @@
 				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
 				CA5B34FA25061C3000335C37 /* ImagePicker.swift in Sources */,
-				CA5B34F12506098900335C37 /* CreateContactView.swift in Sources */,
 				CA5B34FC25062F8500335C37 /* InputAccessoryForTextFields.swift in Sources */,
 				CA5B34EF250606F100335C37 /* CreateContactCoordinator.swift in Sources */,
 				CA5B34ED250606DB00335C37 /* CreateContactViewController.swift in Sources */,
