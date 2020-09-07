@@ -13,11 +13,16 @@ import UIKit
 class CreateContactView: UIView {
     var imagePicker: ImagePicker?
     
+    private let ringtonePicker = UIPickerView()
+    
+    private var ringtones: [String] = ["Default", "Duck", "Bark", "Piano", "Guitar"]
+    
     private var nameTextField = UITextField()
     private var surNameTextField = UITextField()
     private var phoneTextField = UITextField()
     private var noteTextField = UITextField()
     private var avatarButton = UIButton()
+    private var ringtone = UITextField(frame: CGRect.zero)
     
     override func didMoveToSuperview() {
         initial()
@@ -42,10 +47,16 @@ extension CreateContactView {
         avatarButton.clipsToBounds = true
     }
     
+    private func setupPicker() {
+        ringtone.inputView = ringtonePicker
+        ringtone.becomeFirstResponder()
+    }
+    
     private func setupTextFields() {
-        nameTextField.text = "text"
+        nameTextField.text = "name"
         surNameTextField.text = "surname"
         noteTextField.text = "note"
+        phoneTextField.text = "phone"
         
         nameTextField.font = UIFont.systemFont(ofSize: 16)
         surNameTextField.font = UIFont.systemFont(ofSize: 16)
@@ -82,12 +93,18 @@ extension CreateContactView {
             make.top.equalTo(avatarButton.snp.top)
         }
         
+        self.addSubview(ringtone)
+        ringtone.snp.makeConstraints { make in
+            make.top.equalTo(avatarButton.snp.bottom).offset(24)
+            make.leading.equalTo(avatarButton.snp.leading)
+        }
+        
         let additionalInfoVStack = UIStackView(arrangedSubviews: [phoneTextField, noteTextField])
         additionalInfoVStack.axis = .vertical
         
         self.addSubview(additionalInfoVStack)
         additionalInfoVStack.snp.makeConstraints { make in
-            make.top.equalTo(avatarButton.snp.bottom).offset(24)
+            make.top.equalTo(ringtone.snp.bottom).offset(24)
             make.leading.equalTo(avatarButton.snp.leading)
         }
     }
