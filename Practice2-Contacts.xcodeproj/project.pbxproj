@@ -11,6 +11,12 @@
 		CA427B14250215800094DD36 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B13250215800094DD36 /* R.generated.swift */; };
 		CA427B18250216070094DD36 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B17250216070094DD36 /* Coordinator.swift */; };
 		CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B19250216280094DD36 /* AppCoordinator.swift */; };
+		CA5B34EB250606CC00335C37 /* CreateContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */; };
+		CA5B34ED250606DB00335C37 /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */; };
+		CA5B34EF250606F100335C37 /* CreateContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */; };
+		CA5B34F12506098900335C37 /* CreateContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F02506098900335C37 /* CreateContactView.swift */; };
+		CA5B34F4250609AC00335C37 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F3250609AC00335C37 /* Contact.swift */; };
+		CA5B34F8250617BA00335C37 /* TextFieldBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -23,6 +29,12 @@
 		CA427B13250215800094DD36 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		CA427B17250216070094DD36 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CA427B19250216280094DD36 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewModel.swift; sourceTree = "<group>"; };
+		CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
+		CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactCoordinator.swift; sourceTree = "<group>"; };
+		CA5B34F02506098900335C37 /* CreateContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactView.swift; sourceTree = "<group>"; };
+		CA5B34F3250609AC00335C37 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBottomBorder.swift; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +95,33 @@
 			path = Stings;
 			sourceTree = "<group>";
 		};
+		CA5B34E9250606AB00335C37 /* CreateContact */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */,
+				CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */,
+				CA5B34F02506098900335C37 /* CreateContactView.swift */,
+				CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */,
+			);
+			path = CreateContact;
+			sourceTree = "<group>";
+		};
+		CA5B34F2250609A200335C37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B34F3250609AC00335C37 /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CA5B34F62506179C00335C37 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		CABF3E2524CC89200039C72B = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +144,10 @@
 		CABF3E3024CC89200039C72B /* Practice2-Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B34F62506179C00335C37 /* Extension */,
 				CA427B15250215D00094DD36 /* Resources */,
+				CA5B34F2250609A200335C37 /* Models */,
+				CA5B34E9250606AB00335C37 /* CreateContact */,
 				CABF3E3124CC89200039C72B /* AppDelegate.swift */,
 				CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */,
 				CABF3E3F24CC89280039C72B /* Info.plist */,
@@ -267,10 +309,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5B34F4250609AC00335C37 /* Contact.swift in Sources */,
+				CA5B34EB250606CC00335C37 /* CreateContactViewModel.swift in Sources */,
 				CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,
+				CA5B34F8250617BA00335C37 /* TextFieldBottomBorder.swift in Sources */,
 				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
+				CA5B34F12506098900335C37 /* CreateContactView.swift in Sources */,
+				CA5B34EF250606F100335C37 /* CreateContactCoordinator.swift in Sources */,
+				CA5B34ED250606DB00335C37 /* CreateContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
