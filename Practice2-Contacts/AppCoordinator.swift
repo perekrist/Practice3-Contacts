@@ -20,7 +20,7 @@ class AppCoordinator: Coordinator {
     }
     
     override func start() {
-        let coordinator = ContactsListCoordinator(rootViewController: rootViewController)
+        let coordinator = ContactCoordinator(rootViewController: rootViewController)
         self.addChildCoordinator(coordinator)
         coordinator.start()
         

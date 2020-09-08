@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ContactsListViewModel {
+class ContactViewModel {
+    var contact = Contact(name: "Thomas", surName: "Anderson", phone: "89131131314", ringtone: "Duck", note: "This is a note")
+    
     var onDidUpdate: (() -> Void)?
     var onDidError: ((Error) -> Void)?
 }

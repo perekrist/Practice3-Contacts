@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactsListCoordinator: Coordinator {
+class ContactCoordinator: Coordinator {
     let rootViewController: UINavigationController
     
     init(rootViewController: UINavigationController) {
@@ -16,8 +16,8 @@ class ContactsListCoordinator: Coordinator {
     }
     
     override func start() {
-        let vewModel = ContactsListViewModel()
-        let viewController = ContactsListViewController(viewModel: vewModel)
+        let vewModel = ContactViewModel()
+        let viewController = ContactViewController(viewModel: vewModel)
         rootViewController.setViewControllers([viewController], animated: false)
     }
 }
