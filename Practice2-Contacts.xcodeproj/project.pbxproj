@@ -150,6 +150,7 @@
 		CABF3E3024CC89200039C72B /* Practice2-Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B34F62506179C00335C37 /* Extension */,
 				CA427B15250215D00094DD36 /* Resources */,
 				CA427B30250231D20094DD36 /* Models */,
 				CA427B2B25021FC10094DD36 /* Extensions */,
@@ -327,6 +328,10 @@
 				CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */,
 				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
+				CA5B34FA25061C3000335C37 /* ImagePicker.swift in Sources */,
+				CA5B34FC25062F8500335C37 /* InputAccessoryForTextFields.swift in Sources */,
+				CA5B34EF250606F100335C37 /* CreateContactCoordinator.swift in Sources */,
+				CA5B34ED250606DB00335C37 /* CreateContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
