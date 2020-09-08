@@ -64,7 +64,8 @@ extension CreateContactViewController {
     
     private func setupTextFields() {
         phoneTextField.keyboardType = .numberPad
-        addInputAccessoryForTextFields(textFields: [nameTextField, surNameTextField, phoneTextField, ringtoneTextField, noteTextField],
+        addInputAccessoryForTextFields(textFields: [nameTextField, surNameTextField,
+                                                    phoneTextField, ringtoneTextField, noteTextField],
                                        dismissable: true, previousNextable: true)
         
         phoneTextField.placeholder = "89131131314"
@@ -78,6 +79,8 @@ extension CreateContactViewController {
         
         nameTextField.addBottomBorder()
         surNameTextField.addBottomBorder()
+        phoneTextField.addBottomBorder()
+        ringtoneTextField.addBottomBorder()
         noteTextField.addBottomBorder()
                 
         nameTextField.addTarget(self, action: #selector(editName),
@@ -208,7 +211,6 @@ extension CreateContactViewController: UIPickerViewDelegate, UIPickerViewDataSou
         ringtonePicker.dataSource = self
         
         ringtoneTextField.inputView = ringtonePicker
-//        ringtoneTextField.becomeFirstResponder()
         ringtoneTextField.text = ringtones[0]
     }
 }
