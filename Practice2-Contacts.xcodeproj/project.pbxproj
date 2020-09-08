@@ -19,6 +19,14 @@
 		CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B2C25021FD90094DD36 /* ErrorAlert.swift */; };
 		CA427B2F25021FFA0094DD36 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA427B2E25021FF90094DD36 /* Common.strings */; };
 		CA427B32250231E40094DD36 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B31250231E40094DD36 /* Contact.swift */; };
+		CA5B34EB250606CC00335C37 /* CreateContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */; };
+		CA5B34ED250606DB00335C37 /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */; };
+		CA5B34EF250606F100335C37 /* CreateContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */; };
+		CA5B34F4250609AC00335C37 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F3250609AC00335C37 /* Contact.swift */; };
+		CA5B34F8250617BA00335C37 /* TextFieldBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */; };
+		CA5B34FA25061C3000335C37 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F925061C3000335C37 /* ImagePicker.swift */; };
+		CA5B34FC25062F8500335C37 /* InputAccessoryForTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34FB25062F8500335C37 /* InputAccessoryForTextFields.swift */; };
+		CA5B34FE250754F300335C37 /* CreateContact.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA5B34FD250754F300335C37 /* CreateContact.strings */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -39,6 +47,14 @@
 		CA427B2C25021FD90094DD36 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		CA427B2E25021FF90094DD36 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		CA427B31250231E40094DD36 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewModel.swift; sourceTree = "<group>"; };
+		CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
+		CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactCoordinator.swift; sourceTree = "<group>"; };
+		CA5B34F3250609AC00335C37 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBottomBorder.swift; sourceTree = "<group>"; };
+		CA5B34F925061C3000335C37 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CA5B34FB25062F8500335C37 /* InputAccessoryForTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccessoryForTextFields.swift; sourceTree = "<group>"; };
+		CA5B34FD250754F300335C37 /* CreateContact.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = CreateContact.strings; path = "Practice2-Contacts/Extension/CreateContact.strings"; sourceTree = SOURCE_ROOT; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +114,7 @@
 				CA427B2725021BF40094DD36 /* ContactsList.strings */,
 				CA427B2925021CAD0094DD36 /* Contact.strings */,
 				CA427B2E25021FF90094DD36 /* Common.strings */,
+				CA5B34FD250754F300335C37 /* CreateContact.strings */,
 			);
 			path = Stings;
 			sourceTree = "<group>";
@@ -126,6 +143,32 @@
 				CA427B31250231E40094DD36 /* Contact.swift */,
 			);
 			path = Models;
+		CA5B34E9250606AB00335C37 /* CreateContact */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B34EA250606CC00335C37 /* CreateContactViewModel.swift */,
+				CA5B34EC250606DB00335C37 /* CreateContactViewController.swift */,
+				CA5B34EE250606F100335C37 /* CreateContactCoordinator.swift */,
+				CA5B34F925061C3000335C37 /* ImagePicker.swift */,
+			);
+			path = CreateContact;
+			sourceTree = "<group>";
+		};
+		CA5B34F2250609A200335C37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B34F3250609AC00335C37 /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CA5B34F62506179C00335C37 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */,
+				CA5B34FB25062F8500335C37 /* InputAccessoryForTextFields.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		CABF3E2524CC89200039C72B = {
@@ -150,10 +193,13 @@
 		CABF3E3024CC89200039C72B /* Practice2-Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B34F62506179C00335C37 /* Extension */,
 				CA427B15250215D00094DD36 /* Resources */,
 				CA427B30250231D20094DD36 /* Models */,
 				CA427B2B25021FC10094DD36 /* Extensions */,
 				CA427B20250219430094DD36 /* ContactsList */,
+				CA5B34F2250609A200335C37 /* Models */,
+				CA5B34E9250606AB00335C37 /* CreateContact */,
 				CABF3E3124CC89200039C72B /* AppDelegate.swift */,
 				CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */,
 				CABF3E3F24CC89280039C72B /* Info.plist */,
@@ -230,6 +276,7 @@
 				CA427B2825021BF40094DD36 /* ContactsList.strings in Resources */,
 				CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */,
 				CA427B2A25021CAD0094DD36 /* Contact.strings in Resources */,
+				CA5B34FE250754F300335C37 /* CreateContact.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,15 +365,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA427B32250231E40094DD36 /* Contact.swift in Sources */,
+				CA5B34F4250609AC00335C37 /* Contact.swift in Sources */,
+				CA5B34EB250606CC00335C37 /* CreateContactViewModel.swift in Sources */,
 				CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */,
 				CA427B24250219730094DD36 /* ContactsListViewModel.swift in Sources */,
 				CA427B22250219660094DD36 /* ContactsListCoordinator.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,
 				CA427B26250219810094DD36 /* ContactsListViewController.swift in Sources */,
 				CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */,
+				CA5B34F8250617BA00335C37 /* TextFieldBottomBorder.swift in Sources */,
 				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
+				CA5B34FA25061C3000335C37 /* ImagePicker.swift in Sources */,
+				CA5B34FC25062F8500335C37 /* InputAccessoryForTextFields.swift in Sources */,
+				CA5B34EF250606F100335C37 /* CreateContactCoordinator.swift in Sources */,
+				CA5B34ED250606DB00335C37 /* CreateContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
