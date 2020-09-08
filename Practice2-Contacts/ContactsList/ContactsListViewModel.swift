@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol ContactsListViewModelDelegate: class {
+    func contactsListViewModelDidTapCreateContact()
+}
+
 class ContactsListViewModel {
+    weak var delegate: ContactsListViewModelDelegate?
+    
     private let sectionHeight: CGFloat = 28
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
@@ -61,6 +67,11 @@ class ContactsListViewModel {
         attributedString.append(NSMutableAttributedString(string: contact.surName, attributes: attrs))
         
         return attributedString
+    }
+    
+    func goToContactCreation() {
+        print("maybe")
+        delegate?.contactsListViewModelDidTapCreateContact()
     }
     
     private func rowContactsCount(sectionName: String) -> Int {

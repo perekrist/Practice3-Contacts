@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+protocol CreateContactViewModelDelegate: class {
+    func createContactViewModelDidFinish(_ viewModel: CreateContactViewModel)
+}
 
 class CreateContactViewModel {
+     weak var delegate: CreateContactViewModelDelegate?
     
 }

@@ -21,3 +21,19 @@ class ContactsListCoordinator: Coordinator {
         rootViewController.setViewControllers([viewController], animated: false)
     }
 }
+
+extension ContactsListCoordinator: CreateContactCoordinatorOutput {
+    func didFinish(from coordinator: CreateContactCoordinator) {
+        removeChildCoordinator(coordinator)
+    }
+}
+
+extension ContactsListCoordinator: ContactsListViewModelDelegate {
+    func contactsListViewModelDidTapCreateContact() {
+        print("no")
+        let coordinator = CreateContactCoordinator(rootViewController: self.rootViewController)
+        coordinator.delegate = self
+        addChildCoordinator(coordinator)
+        coordinator.start()
+    }
+}
