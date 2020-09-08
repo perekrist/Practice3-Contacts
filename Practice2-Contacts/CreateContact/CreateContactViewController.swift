@@ -26,7 +26,7 @@ class CreateContactViewController: UIViewController {
     private var nameTextField = UITextField()
     private var surNameTextField = UITextField()
     private var noteTextField = UITextField()
-    private var ringtone = UITextField(frame: CGRect.zero)
+    private var ringtoneTextField = UITextField(frame: CGRect.zero)
     
     
     init(viewModel: CreateContactViewModel) {
@@ -64,7 +64,7 @@ extension CreateContactViewController {
     
     private func setupTextFields() {
         phoneTextField.keyboardType = .numberPad
-        addInputAccessoryForTextFields(textFields: [nameTextField, surNameTextField, phoneTextField, noteTextField],
+        addInputAccessoryForTextFields(textFields: [nameTextField, surNameTextField, phoneTextField, ringtoneTextField, noteTextField],
                                        dismissable: true, previousNextable: true)
         
         phoneTextField.placeholder = "89131131314"
@@ -92,11 +92,6 @@ extension CreateContactViewController {
         noteLabel.font = noteLabel.font.withSize(15)
     }
     
-    private func setupPicker() {
-        ringtone.inputView = ringtonePicker
-        ringtone.becomeFirstResponder()
-    }
-    
     @objc private func editName() {
         print(nameTextField.text!)
     }
@@ -118,7 +113,7 @@ extension CreateContactViewController {
         
         view.addSubview(surNameTextField)
         surNameTextField.snp.makeConstraints { make in
-            make.bottom.equalTo(avatarPicker.snp.bottom).offset(-10)
+            make.bottom.equalTo(avatarPicker.snp.bottom).offset(-16)
             make.leading.equalTo(nameTextField.snp.leading)
         }
         
@@ -128,7 +123,7 @@ extension CreateContactViewController {
             make.leading.equalTo(avatarPicker.snp.leading)
         }
         
-        let stact1 = UIStackView(arrangedSubviews: [ringtoneLabel, ringtone])
+        let stact1 = UIStackView(arrangedSubviews: [ringtoneLabel, ringtoneTextField])
         stact1.axis = .vertical
         view.addSubview(stact1)
         stact1.snp.makeConstraints { make in
@@ -140,7 +135,7 @@ extension CreateContactViewController {
         stact2.axis = .vertical
         view.addSubview(stact2)
         stact2.snp.makeConstraints { make in
-            make.top.equalTo(ringtone.snp.bottom).offset(24)
+            make.top.equalTo(ringtoneTextField.snp.bottom).offset(24)
             make.leading.equalTo(avatarPicker.snp.leading)
         }
     }
@@ -188,5 +183,32 @@ extension CreateContactViewController {
     
     @objc private func imagePickerTapped(sender: UIButton) {
         self.imagePicker.present(from: sender)
+    }
+}
+
+extension CreateContactViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return ringtones.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return ringtones[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        ringtoneTextField.text = ringtones[row]
+    }
+    
+    private func setupPicker() {
+        ringtonePicker.delegate = self
+        ringtonePicker.dataSource = self
+        
+        ringtoneTextField.inputView = ringtonePicker
+//        ringtoneTextField.becomeFirstResponder()
+        ringtoneTextField.text = ringtones[0]
     }
 }
