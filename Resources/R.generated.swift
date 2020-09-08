@@ -129,6 +129,47 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.createContact` struct is generated, and contains static references to 2 localization keys.
+    struct createContact {
+      /// Value: Notes
+      static let noteLabel = Rswift.StringResource(key: "noteLabel", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ringtones
+      static let ringroneLabel = Rswift.StringResource(key: "ringroneLabel", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Notes
+      static func noteLabel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("noteLabel", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "noteLabel"
+        }
+
+        return NSLocalizedString("noteLabel", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ringtones
+      static func ringroneLabel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ringroneLabel", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "ringroneLabel"
+        }
+
+        return NSLocalizedString("ringroneLabel", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()

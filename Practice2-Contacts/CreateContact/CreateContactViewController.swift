@@ -12,10 +12,14 @@ import SnapKit
 
 class CreateContactViewController: UIViewController {
     private let viewModel: CreateContactViewModel
+    private let ringtonePicker = UIPickerView()
+
+    private let ringtoneLabel = UILabel()
+    private let noteLabel = UILabel()
+    
     private var imagePicker: ImagePicker!
     private var avatarPicker = UIButton()
     private var phoneTextField = UITextField()
-    private let ringtonePicker = UIPickerView()
     
     private var ringtones: [String] = ["Default", "Duck", "Bark", "Piano", "Guitar"]
     
@@ -55,18 +59,13 @@ extension CreateContactViewController {
         setupConstraints()
         setupTextFields()
         setupPicker()
+        setupLabels()
     }
     
     private func setupTextFields() {
-        view.addSubview(phoneTextField)
         phoneTextField.keyboardType = .numberPad
-        addInputAccessoryForTextFields(textFields: [phoneTextField], dismissable: true, previousNextable: true)
-        
-        view.addSubview(noteTextField)
-        noteTextField.snp.makeConstraints { make in
-            make.top.equalTo(phoneTextField.snp.bottom).offset(16)
-            make.leading.equalTo(16)
-        }
+        addInputAccessoryForTextFields(textFields: [nameTextField, surNameTextField, phoneTextField, noteTextField],
+                                       dismissable: true, previousNextable: true)
         
         phoneTextField.placeholder = "89131131314"
         noteTextField.placeholder = "this is a note"
@@ -80,9 +79,17 @@ extension CreateContactViewController {
         nameTextField.addBottomBorder()
         surNameTextField.addBottomBorder()
         noteTextField.addBottomBorder()
-        
+                
         nameTextField.addTarget(self, action: #selector(editName),
                                 for: UIControl.Event.editingChanged)
+    }
+    
+    private func setupLabels() {
+        ringtoneLabel.text = R.string.createContact.ringroneLabel()
+        ringtoneLabel.font = ringtoneLabel.font.withSize(15)
+        
+        noteLabel.text = R.string.createContact.noteLabel()
+        noteLabel.font = noteLabel.font.withSize(15)
     }
     
     private func setupPicker() {
@@ -91,7 +98,7 @@ extension CreateContactViewController {
     }
     
     @objc private func editName() {
-        print(nameTextField.text)
+        print(nameTextField.text!)
     }
     
     private func setupConstraints() {
@@ -103,28 +110,38 @@ extension CreateContactViewController {
             make.width.equalTo(86)
         }
         
-        let mainInfoVStack = UIStackView(arrangedSubviews: [nameTextField, surNameTextField])
-        mainInfoVStack.axis = .vertical
-        
-        view.addSubview(mainInfoVStack)
-        mainInfoVStack.snp.makeConstraints { make in
-            make.leading.equalTo(24)
-            make.top.equalTo(avatarPicker.snp.bottom).offset(16)
+        view.addSubview(nameTextField)
+        nameTextField.snp.makeConstraints { make in
+            make.top.equalTo(avatarPicker.snp.top).offset(10)
+            make.leading.equalTo(avatarPicker.snp.trailing).offset(24)
         }
         
-        view.addSubview(ringtone)
-        ringtone.snp.makeConstraints { make in
-            make.top.equalTo(mainInfoVStack.snp.bottom).offset(24)
-            make.leading.equalTo(16)
+        view.addSubview(surNameTextField)
+        surNameTextField.snp.makeConstraints { make in
+            make.bottom.equalTo(avatarPicker.snp.bottom).offset(-10)
+            make.leading.equalTo(nameTextField.snp.leading)
         }
         
-        let additionalInfoVStack = UIStackView(arrangedSubviews: [phoneTextField, noteTextField])
-        additionalInfoVStack.axis = .vertical
+        view.addSubview(phoneTextField)
+        phoneTextField.snp.makeConstraints { make in
+            make.top.equalTo(avatarPicker.snp.bottom).offset(24)
+            make.leading.equalTo(avatarPicker.snp.leading)
+        }
         
-        view.addSubview(additionalInfoVStack)
-        additionalInfoVStack.snp.makeConstraints { make in
+        let stact1 = UIStackView(arrangedSubviews: [ringtoneLabel, ringtone])
+        stact1.axis = .vertical
+        view.addSubview(stact1)
+        stact1.snp.makeConstraints { make in
+            make.top.equalTo(phoneTextField.snp.bottom).offset(24)
+            make.leading.equalTo(avatarPicker.snp.leading)
+        }
+        
+        let stact2 = UIStackView(arrangedSubviews: [noteLabel, noteTextField])
+        stact2.axis = .vertical
+        view.addSubview(stact2)
+        stact2.snp.makeConstraints { make in
             make.top.equalTo(ringtone.snp.bottom).offset(24)
-            make.leading.equalTo(16)
+            make.leading.equalTo(avatarPicker.snp.leading)
         }
     }
     

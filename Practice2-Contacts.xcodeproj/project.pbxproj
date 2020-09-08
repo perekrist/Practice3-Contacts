@@ -18,6 +18,7 @@
 		CA5B34F8250617BA00335C37 /* TextFieldBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */; };
 		CA5B34FA25061C3000335C37 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34F925061C3000335C37 /* ImagePicker.swift */; };
 		CA5B34FC25062F8500335C37 /* InputAccessoryForTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B34FB25062F8500335C37 /* InputAccessoryForTextFields.swift */; };
+		CA5B34FE250754F300335C37 /* CreateContact.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA5B34FD250754F300335C37 /* CreateContact.strings */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -37,6 +38,7 @@
 		CA5B34F7250617BA00335C37 /* TextFieldBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBottomBorder.swift; sourceTree = "<group>"; };
 		CA5B34F925061C3000335C37 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CA5B34FB25062F8500335C37 /* InputAccessoryForTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccessoryForTextFields.swift; sourceTree = "<group>"; };
+		CA5B34FD250754F300335C37 /* CreateContact.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = CreateContact.strings; path = "Practice2-Contacts/Extension/CreateContact.strings"; sourceTree = SOURCE_ROOT; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		CA427B16250215E20094DD36 /* Stings */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B34FD250754F300335C37 /* CreateContact.strings */,
 			);
 			path = Stings;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			files = (
 				CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */,
 				CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */,
+				CA5B34FE250754F300335C37 /* CreateContact.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
