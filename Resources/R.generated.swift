@@ -105,10 +105,14 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
     /// Image `addButton`.
     static let addButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "addButton")
+    /// Image `circule`.
+    static let circule = Rswift.ImageResource(bundle: R.hostingBundle, name: "circule")
+    /// Image `plus`.
+    static let plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "plus")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "addButton", bundle: ..., traitCollection: ...)`
@@ -117,10 +121,24 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "circule", bundle: ..., traitCollection: ...)`
+    static func circule(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.circule, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "plus", bundle: ..., traitCollection: ...)`
+    static func plus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.plus, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 4 localization tables.
   struct string {
     /// This `R.string.common` struct is generated, and contains static references to 2 localization keys.
     struct common {
@@ -195,6 +213,42 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("navBarTitle", tableName: "ContactsList", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.createContact` struct is generated, and contains static references to 2 localization keys.
+    struct createContact {
+      /// Value: Notes
+      static let noteLabel = Rswift.StringResource(key: "noteLabel", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ringtones
+      static let ringroneLabel = Rswift.StringResource(key: "ringroneLabel", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Notes
+      static func noteLabel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("noteLabel", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "noteLabel"
+        }
+
+        return NSLocalizedString("noteLabel", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ringtones
+      static func ringroneLabel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ringroneLabel", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "ringroneLabel"
+        }
+
+        return NSLocalizedString("ringroneLabel", tableName: "CreateContact", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

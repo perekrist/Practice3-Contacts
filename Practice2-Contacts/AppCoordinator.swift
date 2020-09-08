@@ -31,4 +31,3 @@ class AppCoordinator: Coordinator {
     override func finish() {
     }
 }
-

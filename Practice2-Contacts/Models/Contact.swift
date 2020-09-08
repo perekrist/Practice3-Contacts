@@ -11,9 +11,9 @@ import UIKit
 
 struct Contact {
     var name: String
-    var surName: String?
-    var phone: String
-    var image: UIImageView?
-    var ringtone: String
+    var surName: String
+    var phone: String?
+    var image: UIImage?
+    var ringtone: String?
     var note: String?
 }
