@@ -24,7 +24,7 @@ class CreateContactCoordinator: Coordinator {
     override func start() {
         let viewModel = CreateContactViewModel()
         let viewController = CreateContactViewController(viewModel: viewModel)
-        rootViewController.setViewControllers([viewController], animated: false)
+        rootViewController.pushViewController(viewController, animated: true)
     }
     
     override func finish() {

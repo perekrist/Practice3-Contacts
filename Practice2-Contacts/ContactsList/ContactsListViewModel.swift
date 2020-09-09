@@ -70,7 +70,6 @@ class ContactsListViewModel {
     }
     
     func goToContactCreation() {
-        print("maybe")
         delegate?.contactsListViewModelDidTapCreateContact()
     }
     

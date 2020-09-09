@@ -10,30 +10,34 @@ import UIKit
 
 class ContactsListCoordinator: Coordinator {
     let rootViewController: UINavigationController
+    lazy var viewModel = ContactsListViewModel()
     
     init(rootViewController: UINavigationController) {
         self.rootViewController = rootViewController
     }
     
     override func start() {
-        let vewModel = ContactsListViewModel()
-        let viewController = ContactsListViewController(viewModel: vewModel)
+        viewModel.delegate = self
+        let viewController = ContactsListViewController(viewModel: self.viewModel)
         rootViewController.setViewControllers([viewController], animated: false)
+    }
+    
+    func goToContactCreation() {
+        let coordinator = CreateContactCoordinator(rootViewController: self.rootViewController)
+        coordinator.delegate = self
+        addChildCoordinator(coordinator)
+        coordinator.start()
+    }
+}
+
+extension ContactsListCoordinator: ContactsListViewModelDelegate {
+    func contactsListViewModelDidTapCreateContact() {
+        goToContactCreation()
     }
 }
 
 extension ContactsListCoordinator: CreateContactCoordinatorOutput {
     func didFinish(from coordinator: CreateContactCoordinator) {
         removeChildCoordinator(coordinator)
-    }
-}
-
-extension ContactsListCoordinator: ContactsListViewModelDelegate {
-    func contactsListViewModelDidTapCreateContact() {
-        print("no")
-        let coordinator = CreateContactCoordinator(rootViewController: self.rootViewController)
-        coordinator.delegate = self
-        addChildCoordinator(coordinator)
-        coordinator.start()
     }
 }

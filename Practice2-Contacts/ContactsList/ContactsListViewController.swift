@@ -54,7 +54,6 @@ extension ContactsListViewController {
     }
     
     @objc func addContact() {
-        print("yes")
         viewModel.goToContactCreation()
     }
     
