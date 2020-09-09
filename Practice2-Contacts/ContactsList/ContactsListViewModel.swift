@@ -10,6 +10,7 @@ import UIKit
 
 protocol ContactsListViewModelDelegate: class {
     func contactsListViewModelDidTapCreateContact()
+    func contactsListViewModelDidContactTap(contact: Contact)
 }
 
 class ContactsListViewModel {
@@ -18,7 +19,7 @@ class ContactsListViewModel {
     private let sectionHeight: CGFloat = 28
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
-    private let ringtoneService = ContactsService()
+    private let contactService = ContactsService()
     
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray
@@ -42,7 +43,7 @@ class ContactsListViewModel {
     }
     
     func cellTitle(indexPath: IndexPath) -> NSAttributedString {
-        let sectionContacts = ringtoneService.getContacts().filter { (contact: Contact) -> Bool in
+        let sectionContacts = contactService.getContacts().filter { (contact: Contact) -> Bool in
             return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
         }
         let contact = sectionContacts[indexPath.row]
@@ -57,8 +58,16 @@ class ContactsListViewModel {
         delegate?.contactsListViewModelDidTapCreateContact()
     }
     
+    func goToContactView(indexPath: IndexPath) {
+        let sectionContacts = contactService.getContacts().filter { (contact: Contact) -> Bool in
+            return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
+        }
+        let contact = sectionContacts[indexPath.row]
+        delegate?.contactsListViewModelDidContactTap(contact: contact)
+    }
+    
     private func rowContactsCount(sectionName: String) -> Int {
-        return ringtoneService.getContacts().filter { (contact: Contact) -> Bool in
+        return contactService.getContacts().filter { (contact: Contact) -> Bool in
             contact.surName.starts(with: sectionName)
         }.count
     }

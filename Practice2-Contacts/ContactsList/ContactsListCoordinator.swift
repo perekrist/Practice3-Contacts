@@ -28,9 +28,20 @@ class ContactsListCoordinator: Coordinator {
         addChildCoordinator(coordinator)
         coordinator.start()
     }
+    
+    func goToContact(contact: Contact) {
+        let coordinator = ContactCoordinator(rootViewController: self.rootViewController, contact: contact)
+//        coordinator.delegate = self
+        addChildCoordinator(coordinator)
+        coordinator.start()
+    }
 }
 
 extension ContactsListCoordinator: ContactsListViewModelDelegate {
+    func contactsListViewModelDidContactTap(contact: Contact) {
+        goToContact(contact: contact)
+    }
+    
     func contactsListViewModelDidTapCreateContact() {
         goToContactCreation()
     }
