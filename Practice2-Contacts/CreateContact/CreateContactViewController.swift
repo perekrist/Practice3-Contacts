@@ -181,7 +181,16 @@ extension CreateContactViewController {
     }
     
     @objc func doneTapped() {
-        print("done")
+        let contact = Contact(name: nameTextField.text!,
+                              surName: surNameTextField.text!,
+                              phone: phoneTextField.text!,
+                              image: avatarPicker.imageView?.image,
+                              ringtone: ringtoneTextField.text,
+                              note: noteTextField.text!)
+        if !viewModel.verifyContact(contact: contact) {
+            showError("Fill the name filed!")
+        }
+        
     }
     
     @objc private func imagePickerTapped(sender: UIButton) {

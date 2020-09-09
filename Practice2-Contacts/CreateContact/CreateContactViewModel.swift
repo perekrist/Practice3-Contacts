@@ -14,6 +14,12 @@ protocol CreateContactViewModelDelegate: class {
 }
 
 class CreateContactViewModel {
-     weak var delegate: CreateContactViewModelDelegate?
+    weak var delegate: CreateContactViewModelDelegate?
     
+    func verifyContact(contact: Contact) -> Bool {
+        if contact.name.isEmpty {
+            return false
+        }
+        return true
+    }
 }

@@ -18,23 +18,7 @@ class ContactsListViewModel {
     private let sectionHeight: CGFloat = 28
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
-    
-    private var contacts: [Contact] = [Contact(name: "Thomas", surName: "Anderson"),
-                               Contact(name: "Holden", surName: "Colfield"),
-                               Contact(name: "Abill", surName: "Baarda"),
-                               Contact(name: "Milton", surName: "Aaron"),
-                               Contact(name: "Pauline", surName: "Banister"),
-                               Contact(name: "Kristina", surName: "Leregudova"),
-                               Contact(name: "Holden", surName: "Folfield"),
-                               Contact(name: "Brill", surName: "Baarda"),
-                               Contact(name: "Milton", surName: "Xaron"),
-                               Contact(name: "Pauline", surName: "Sanister"),
-                               Contact(name: "Kristina", surName: "Peregudova"),
-                               Contact(name: "Maxim", surName: "Sachuk")]
-    
-    init() {
-        contacts.sort { $0.name < $1.name }
-    }
+    private let ringtoneService = ContactsService()
     
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray
@@ -58,7 +42,7 @@ class ContactsListViewModel {
     }
     
     func cellTitle(indexPath: IndexPath) -> NSAttributedString {
-        let sectionContacts = contacts.filter { (contact: Contact) -> Bool in
+        let sectionContacts = ringtoneService.getContacts().filter { (contact: Contact) -> Bool in
             return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
         }
         let contact = sectionContacts[indexPath.row]
@@ -74,7 +58,7 @@ class ContactsListViewModel {
     }
     
     private func rowContactsCount(sectionName: String) -> Int {
-        return contacts.filter { (contact: Contact) -> Bool in
+        return ringtoneService.getContacts().filter { (contact: Contact) -> Bool in
             contact.surName.starts(with: sectionName)
         }.count
     }
