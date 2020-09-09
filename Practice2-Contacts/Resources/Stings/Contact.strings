@@ -7,3 +7,6 @@
 */
 
 "bacButtonTitle" = "Contacts";
+"phoneLAbel" = "Phone";
+"ringtoneLabel" = "Ringtone";
+"noteLabel" = "Notes";

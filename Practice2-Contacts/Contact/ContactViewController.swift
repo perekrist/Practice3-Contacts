@@ -19,6 +19,10 @@ class ContactViewController: UIViewController {
     private lazy var ringtoneLabel = UILabel()
     private lazy var noteLabel = UILabel()
     
+    private var phoneTopLabel = UILabel()
+    private var ringtoneTopLabel = UILabel()
+    private var noteTopLabel = UILabel()
+    
     init(viewModel: ContactViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -44,8 +48,9 @@ extension ContactViewController {
     func initialSetup() {
         view.backgroundColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
         navBarButtons()
-        setupImageView()
         constraintsLayout()
+        setupImageView()
+        setupLabels()
         bindToViewModel()
     }
     
@@ -56,31 +61,54 @@ extension ContactViewController {
         phoneLabel.text = viewModel.contact.phone ?? ""
         ringtoneLabel.text = viewModel.contact.ringtone ?? "Default" //ringtones[0]
         noteLabel.text = viewModel.contact.note ?? ""
-//        avatarImageView.image = viewModel.contact.image
+        avatarImageView.image = viewModel.contact.image
     }
     
     private func setupImageView() {
         avatarImageView.backgroundColor = UIColor.lightGray
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.width / 2
+        avatarImageView.clipsToBounds = true
+    }
+    
+    private func setupLabels() {
+        nameLabel.font = nameLabel.font.withSize(30)
+        surnameLabel.font = surnameLabel.font.withSize(30)
+        
+        phoneTopLabel.text = R.string.contact.phoneLAbel()
+        ringtoneTopLabel.text = R.string.contact.ringtoneLabel()
+        noteTopLabel.text = R.string.contact.noteLabel()
+        
+        phoneTopLabel.font = phoneTopLabel.font.withSize(15)
+        ringtoneTopLabel.font = ringtoneTopLabel.font.withSize(15)
+        noteTopLabel.font = noteTopLabel.font.withSize(15)
+        
+        phoneLabel.font = phoneLabel.font.withSize(17)
+        ringtoneLabel.font = ringtoneLabel.font.withSize(17)
+        noteLabel.font = noteLabel.font.withSize(17)
     }
     
     private func constraintsLayout() {
         view.addSubview(avatarImageView)
         avatarImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.leading.equalTo(49)
+            make.top.equalTo(100)
+            make.centerX.equalTo(self.view)
+            make.height.width.equalTo(86)
         }
         
         let stack = UIStackView(arrangedSubviews: [nameLabel, surnameLabel])
-        stack.axis = .vertical
+        stack.axis = .horizontal
+        stack.spacing = 10
         view.addSubview(stack)
         stack.snp.makeConstraints { make in
             make.top.equalTo(avatarImageView.snp.bottom).offset(16)
-            make.leading.equalTo(49)
+            make.centerX.equalTo(self.view)
         }
         
-        let vStact = UIStackView(arrangedSubviews: [phoneLabel, ringtoneLabel, noteLabel])
-        stack.axis = .horizontal
-        
+        let vStact = UIStackView(arrangedSubviews: [phoneTopLabel, phoneLabel,
+                                                    ringtoneTopLabel, ringtoneLabel,
+                                                    noteTopLabel, noteLabel])
+        vStact.axis = .vertical
+        vStact.spacing = 5
         view.addSubview(vStact)
         vStact.snp.makeConstraints { make in
             make.top.equalTo(stack.snp.bottom).offset(30)

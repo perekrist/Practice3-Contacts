@@ -13,7 +13,7 @@ import SnapKit
 class CreateContactViewController: UIViewController {
     private let viewModel: CreateContactViewModel
     private let ringtonePicker = UIPickerView()
-
+    
     private let ringtoneLabel = UILabel()
     private let noteLabel = UILabel()
     
@@ -92,7 +92,7 @@ extension CreateContactViewController {
         phoneTextField.addBottomBorder()
         ringtoneTextField.addBottomBorder()
         noteTextField.addBottomBorder()
-                
+        
         nameTextField.addTarget(self, action: #selector(editName),
                                 for: UIControl.Event.editingChanged)
     }
@@ -187,7 +187,7 @@ extension CreateContactViewController: ImagePickerDelegate {
 
 extension CreateContactViewController {
     @objc func cancelTapped() {
-        print("cancel")
+        viewModel.goBack()
     }
     
     @objc func doneTapped() {
@@ -199,6 +199,9 @@ extension CreateContactViewController {
                               note: noteTextField.text!)
         if !viewModel.verifyContact(contact: contact) {
             showError("Fill the name filed!")
+        } else {
+            viewModel.contact = contact
+            viewModel.goBack()
         }
         
     }

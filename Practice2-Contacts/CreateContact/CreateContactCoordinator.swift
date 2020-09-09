@@ -26,6 +26,7 @@ class CreateContactCoordinator: Coordinator {
     }
     
     override func start() {
+        viewModel.delegate = self
         let viewController = CreateContactViewController(viewModel: viewModel)
         rootViewController.pushViewController(viewController, animated: true)
     }
@@ -37,6 +38,7 @@ class CreateContactCoordinator: Coordinator {
 
 extension CreateContactCoordinator: CreateContactViewModelDelegate {
     func createContactViewModelDidFinish(_ viewModel: CreateContactViewModel) {
+        print("back2")
         finish()
     }
 }

@@ -176,10 +176,16 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.contact` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.contact` struct is generated, and contains static references to 4 localization keys.
     struct contact {
       /// Value: Contacts
       static let bacButtonTitle = Rswift.StringResource(key: "bacButtonTitle", tableName: "Contact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Notes
+      static let noteLabel = Rswift.StringResource(key: "noteLabel", tableName: "Contact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Phone
+      static let phoneLAbel = Rswift.StringResource(key: "phoneLAbel", tableName: "Contact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ringtone
+      static let ringtoneLabel = Rswift.StringResource(key: "ringtoneLabel", tableName: "Contact", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Contacts
       static func bacButtonTitle(preferredLanguages: [String]? = nil) -> String {
@@ -192,6 +198,45 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("bacButtonTitle", tableName: "Contact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Notes
+      static func noteLabel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("noteLabel", tableName: "Contact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Contact", preferredLanguages: preferredLanguages) else {
+          return "noteLabel"
+        }
+
+        return NSLocalizedString("noteLabel", tableName: "Contact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Phone
+      static func phoneLAbel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("phoneLAbel", tableName: "Contact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Contact", preferredLanguages: preferredLanguages) else {
+          return "phoneLAbel"
+        }
+
+        return NSLocalizedString("phoneLAbel", tableName: "Contact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ringtone
+      static func ringtoneLabel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ringtoneLabel", tableName: "Contact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Contact", preferredLanguages: preferredLanguages) else {
+          return "ringtoneLabel"
+        }
+
+        return NSLocalizedString("ringtoneLabel", tableName: "Contact", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

@@ -128,8 +128,8 @@
 		CA427B20250219430094DD36 /* ContactsList */ = {
 			isa = PBXGroup;
 			children = (
-				CA427B25250219810094DD36 /* ContactsListViewController.swift */,
 				CA427B23250219730094DD36 /* ContactsListViewModel.swift */,
+				CA427B25250219810094DD36 /* ContactsListViewController.swift */,
 				CA427B21250219660094DD36 /* ContactsListCoordinator.swift */,
 			);
 			path = ContactsList;
@@ -158,8 +158,8 @@
 			children = (
 				CA5B350025076AF400335C37 /* ImagePicker.swift */,
 				CA5B350125076AF400335C37 /* CreateContactViewModel.swift */,
-				CA5B350225076AF400335C37 /* CreateContactCoordinator.swift */,
 				CA5B350325076AF400335C37 /* CreateContactViewController.swift */,
+				CA5B350225076AF400335C37 /* CreateContactCoordinator.swift */,
 			);
 			path = CreateContact;
 			sourceTree = "<group>";
