@@ -78,10 +78,10 @@ extension CreateContactViewController {
                                                     phoneTextField, ringtoneTextField, noteTextField],
                                        dismissable: true, previousNextable: true)
         
-        phoneTextField.placeholder = "89131131314"
-        noteTextField.placeholder = "this is a note"
-        nameTextField.placeholder = "name"
-        surNameTextField.placeholder = "surname"
+        phoneTextField.placeholder = R.string.createContact.phonePlaceholder()
+        noteTextField.placeholder = R.string.createContact.notePlaceholder()
+        nameTextField.placeholder = R.string.createContact.namePlaceholder()
+        surNameTextField.placeholder = R.string.createContact.surnamePlaceholder()
         
         nameTextField.font = UIFont.systemFont(ofSize: 16)
         surNameTextField.font = UIFont.systemFont(ofSize: 16)
@@ -194,7 +194,7 @@ extension CreateContactViewController {
                               ringtone: ringtoneTextField.text,
                               note: noteTextField.text!)
         if !viewModel.verifyContact(contact: contact) {
-            showError("Fill the name filed!")
+            showError(R.string.createContact.emptyFieldsError())
         } else {
             viewModel.contact = contact
             viewModel.goBack()

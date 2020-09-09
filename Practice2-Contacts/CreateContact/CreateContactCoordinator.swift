@@ -15,9 +15,9 @@ protocol CreateContactCoordinatorOutput: class {
 class CreateContactCoordinator: Coordinator {
     weak var delegate: CreateContactCoordinatorOutput?
     
-    let rootViewController: UINavigationController
-    let contact: Contact?
-    let viewModel: CreateContactViewModel
+    private let rootViewController: UINavigationController
+    private let contact: Contact?
+    private let viewModel: CreateContactViewModel
     
     init(rootViewController: UINavigationController, contact: Contact?) {
         self.rootViewController = rootViewController
@@ -38,7 +38,6 @@ class CreateContactCoordinator: Coordinator {
 
 extension CreateContactCoordinator: CreateContactViewModelDelegate {
     func createContactViewModelDidFinish(_ viewModel: CreateContactViewModel) {
-        print("back2")
         finish()
     }
 }

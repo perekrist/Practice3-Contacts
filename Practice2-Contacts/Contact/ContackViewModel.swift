@@ -15,11 +15,7 @@ protocol ContactViewModelDelegate: class {
 
 class ContactViewModel {
     weak var delegate: ContactViewModelDelegate?
-    
     var contact: Contact
-    
-    var onDidUpdate: (() -> Void)?
-    var onDidError: ((Error) -> Void)?
     
     init(contact: Contact) {
         self.contact = contact

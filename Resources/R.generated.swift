@@ -263,12 +263,93 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.createContact` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.createContact` struct is generated, and contains static references to 10 localization keys.
     struct createContact {
+      /// Value: 8 (913) 113-13-14
+      static let phonePlaceholder = Rswift.StringResource(key: "phonePlaceholder", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Cancel
+      static let cancelTitle = Rswift.StringResource(key: "cancelTitle", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Choose photo
+      static let choosePhotoTitle = Rswift.StringResource(key: "choosePhotoTitle", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Fill the name filed!
+      static let emptyFieldsError = Rswift.StringResource(key: "emptyFieldsError", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Name
+      static let namePlaceholder = Rswift.StringResource(key: "namePlaceholder", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Notes
       static let noteLabel = Rswift.StringResource(key: "noteLabel", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ringtones
       static let ringroneLabel = Rswift.StringResource(key: "ringroneLabel", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Surname
+      static let surnamePlaceholder = Rswift.StringResource(key: "surnamePlaceholder", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Take photo
+      static let takePhotoTitle = Rswift.StringResource(key: "takePhotoTitle", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Type note there...
+      static let notePlaceholder = Rswift.StringResource(key: "notePlaceholder", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: 8 (913) 113-13-14
+      static func phonePlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("phonePlaceholder", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "phonePlaceholder"
+        }
+
+        return NSLocalizedString("phonePlaceholder", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Cancel
+      static func cancelTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("cancelTitle", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "cancelTitle"
+        }
+
+        return NSLocalizedString("cancelTitle", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Choose photo
+      static func choosePhotoTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("choosePhotoTitle", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "choosePhotoTitle"
+        }
+
+        return NSLocalizedString("choosePhotoTitle", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Fill the name filed!
+      static func emptyFieldsError(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("emptyFieldsError", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "emptyFieldsError"
+        }
+
+        return NSLocalizedString("emptyFieldsError", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Name
+      static func namePlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("namePlaceholder", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "namePlaceholder"
+        }
+
+        return NSLocalizedString("namePlaceholder", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
 
       /// Value: Notes
       static func noteLabel(preferredLanguages: [String]? = nil) -> String {
@@ -294,6 +375,45 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("ringroneLabel", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Surname
+      static func surnamePlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("surnamePlaceholder", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "surnamePlaceholder"
+        }
+
+        return NSLocalizedString("surnamePlaceholder", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Take photo
+      static func takePhotoTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("takePhotoTitle", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "takePhotoTitle"
+        }
+
+        return NSLocalizedString("takePhotoTitle", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Type note there...
+      static func notePlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("notePlaceholder", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "notePlaceholder"
+        }
+
+        return NSLocalizedString("notePlaceholder", tableName: "CreateContact", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

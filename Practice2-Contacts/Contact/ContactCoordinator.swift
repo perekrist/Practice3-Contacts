@@ -15,9 +15,9 @@ protocol ContactCoordinatorOutput: class {
 class ContactCoordinator: Coordinator {
     weak var delegate: ContactCoordinatorOutput?
     
-    let rootViewController: UINavigationController
-    let contact: Contact
-    var viewModel: ContactViewModel
+    private let rootViewController: UINavigationController
+    private let contact: Contact
+    private var viewModel: ContactViewModel
     
     init(rootViewController: UINavigationController, contact: Contact) {
         self.rootViewController = rootViewController

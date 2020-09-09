@@ -29,7 +29,6 @@ class CreateContactViewModel {
     }
     
     func goBack() {
-        print("back1")
         delegate?.createContactViewModelDidFinish(self)
     }
 }

@@ -8,3 +8,11 @@
 
 "ringroneLabel" = "Ringtones";
 "noteLabel" = "Notes";
+"takePhotoTitle" = "Take photo";
+"choosePhotoTitle" = "Choose photo";
+"cancelTitle" = "Cancel";
+"emptyFieldsError" = "Fill the name filed!";
+"namePlaceholder" = "Name";
+"surnamePlaceholder" = "Surname";
+"phonePlaceholder" = "8 (913) 113-13-14";
+"notePlaceholder" = "Type note there...";
