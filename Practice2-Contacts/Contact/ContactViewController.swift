@@ -62,6 +62,8 @@ extension ContactViewController {
         ringtoneLabel.text = viewModel.contact.ringtone ?? "Default" //ringtones[0]
         noteLabel.text = viewModel.contact.note ?? ""
         avatarImageView.image = viewModel.contact.image
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.width / 2
+        avatarImageView.clipsToBounds = true
     }
     
     private func setupImageView() {
@@ -104,11 +106,11 @@ extension ContactViewController {
             make.centerX.equalTo(self.view)
         }
         
-        let vStact = UIStackView(arrangedSubviews: [phoneTopLabel, phoneLabel,
-                                                    ringtoneTopLabel, ringtoneLabel,
-                                                    noteTopLabel, noteLabel])
+        let vStact = UIStackView(arrangedSubviews: [phoneTopLabel, phoneLabel, Divider(),
+                                                    ringtoneTopLabel, ringtoneLabel, Divider(),
+                                                    noteTopLabel, noteLabel, Divider()])
         vStact.axis = .vertical
-        vStact.spacing = 5
+        vStact.spacing = 10
         view.addSubview(vStact)
         vStact.snp.makeConstraints { make in
             make.top.equalTo(stack.snp.bottom).offset(30)

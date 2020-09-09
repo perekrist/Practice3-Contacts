@@ -87,12 +87,6 @@ extension CreateContactViewController {
         surNameTextField.font = UIFont.systemFont(ofSize: 16)
         noteTextField.font = UIFont.systemFont(ofSize: 16)
         
-        nameTextField.addBottomBorder()
-        surNameTextField.addBottomBorder()
-        phoneTextField.addBottomBorder()
-        ringtoneTextField.addBottomBorder()
-        noteTextField.addBottomBorder()
-        
         nameTextField.addTarget(self, action: #selector(editName),
                                 for: UIControl.Event.editingChanged)
     }
@@ -136,16 +130,18 @@ extension CreateContactViewController {
             make.leading.equalTo(avatarPicker.snp.leading)
         }
         
-        let stact1 = UIStackView(arrangedSubviews: [ringtoneLabel, ringtoneTextField])
+        let stact1 = UIStackView(arrangedSubviews: [ringtoneLabel, ringtoneTextField, Divider()])
         stact1.axis = .vertical
+        stact1.spacing = 5
         view.addSubview(stact1)
         stact1.snp.makeConstraints { make in
             make.top.equalTo(phoneTextField.snp.bottom).offset(24)
             make.leading.equalTo(avatarPicker.snp.leading)
         }
         
-        let stact2 = UIStackView(arrangedSubviews: [noteLabel, noteTextField])
+        let stact2 = UIStackView(arrangedSubviews: [noteLabel, noteTextField, Divider()])
         stact2.axis = .vertical
+        stact2.spacing = 5
         view.addSubview(stact2)
         stact2.snp.makeConstraints { make in
             make.top.equalTo(ringtoneTextField.snp.bottom).offset(24)

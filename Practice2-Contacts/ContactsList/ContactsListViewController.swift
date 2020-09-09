@@ -52,6 +52,7 @@ extension ContactsListViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(addContact))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.systemBlue
     }
     
     @objc func addContact() {
