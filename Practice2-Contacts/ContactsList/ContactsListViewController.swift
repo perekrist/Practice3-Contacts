@@ -43,6 +43,7 @@ extension ContactsListViewController {
                                                            style: .plain,
                                                            target: nil,
                                                            action: nil)
+        navigationItem.backBarButtonItem?.tintColor = UIColor.systemBlue
         
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController

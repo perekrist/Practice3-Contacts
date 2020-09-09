@@ -10,6 +10,7 @@ import UIKit
 
 protocol ContactViewModelDelegate: class {
     func contactViewModelDidFinish(_ viewModel: ContactViewModel)
+    func contactViewModelDidEditTap(_ viewModel: ContactViewModel)
 }
 
 class ContactViewModel {
@@ -26,5 +27,9 @@ class ContactViewModel {
     
     func goBack() {
         delegate?.contactViewModelDidFinish(self)
+    }
+    
+    func goToContactEdit() {
+        delegate?.contactViewModelDidEditTap(self)
     }
 }

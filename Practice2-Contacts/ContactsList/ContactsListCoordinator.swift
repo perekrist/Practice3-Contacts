@@ -23,7 +23,7 @@ class ContactsListCoordinator: Coordinator {
     }
     
     func goToContactCreation() {
-        let coordinator = CreateContactCoordinator(rootViewController: self.rootViewController)
+        let coordinator = CreateContactCoordinator(rootViewController: self.rootViewController, contact: nil)
         coordinator.delegate = self
         addChildCoordinator(coordinator)
         coordinator.start()
@@ -31,7 +31,6 @@ class ContactsListCoordinator: Coordinator {
     
     func goToContact(contact: Contact) {
         let coordinator = ContactCoordinator(rootViewController: self.rootViewController, contact: contact)
-//        coordinator.delegate = self
         addChildCoordinator(coordinator)
         coordinator.start()
     }

@@ -96,7 +96,7 @@ extension ContactViewController {
     }
     
     @objc func editTapped() {
-        
+        viewModel.goToContactEdit()
     }
     
 }

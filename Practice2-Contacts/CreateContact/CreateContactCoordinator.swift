@@ -16,9 +16,11 @@ class CreateContactCoordinator: Coordinator {
     weak var delegate: CreateContactCoordinatorOutput?
     
     let rootViewController: UINavigationController
+    let contact: Contact?
     
-    init(rootViewController: UINavigationController) {
+    init(rootViewController: UINavigationController, contact: Contact?) {
         self.rootViewController = rootViewController
+        self.contact = contact
     }
     
     override func start() {

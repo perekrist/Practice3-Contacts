@@ -18,7 +18,7 @@ class ContactCoordinator: Coordinator {
     let rootViewController: UINavigationController
     let contact: Contact
     var viewModel: ContactViewModel
-
+    
     init(rootViewController: UINavigationController, contact: Contact) {
         self.rootViewController = rootViewController
         self.contact = contact
@@ -34,9 +34,19 @@ class ContactCoordinator: Coordinator {
     override func finish() {
         delegate?.didFinish(from: self)
     }
+    
+    func goToContactEdit() {
+        let coordinator = CreateContactCoordinator(rootViewController: self.rootViewController, contact: contact)
+        addChildCoordinator(coordinator)
+        coordinator.start()
+    }
 }
 
 extension ContactCoordinator: ContactViewModelDelegate {
+    func contactViewModelDidEditTap(_ viewModel: ContactViewModel) {
+        goToContactEdit()
+    }
+    
     func contactViewModelDidFinish(_ viewModel: ContactViewModel) {
         finish()
     }
