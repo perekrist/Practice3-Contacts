@@ -17,14 +17,15 @@ class CreateContactCoordinator: Coordinator {
     
     let rootViewController: UINavigationController
     let contact: Contact?
+    let viewModel: CreateContactViewModel
     
     init(rootViewController: UINavigationController, contact: Contact?) {
         self.rootViewController = rootViewController
         self.contact = contact
+        viewModel = CreateContactViewModel(contact: contact)
     }
     
     override func start() {
-        let viewModel = CreateContactViewModel()
         let viewController = CreateContactViewController(viewModel: viewModel)
         rootViewController.pushViewController(viewController, animated: true)
     }

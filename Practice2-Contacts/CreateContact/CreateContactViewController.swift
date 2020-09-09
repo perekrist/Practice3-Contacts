@@ -60,6 +60,16 @@ extension CreateContactViewController {
         setupTextFields()
         setupPicker()
         setupLabels()
+        bindToViewModel()
+    }
+    
+    private func bindToViewModel() {
+        nameTextField.text = viewModel.contact?.name
+        surNameTextField.text = viewModel.contact?.surName
+        phoneTextField.text = viewModel.contact?.phone
+        avatarPicker.imageView?.image = viewModel.contact?.image
+        ringtoneTextField.text = viewModel.contact?.ringtone
+        noteTextField.text = viewModel.contact?.note
     }
     
     private func setupTextFields() {
