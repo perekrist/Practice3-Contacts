@@ -20,15 +20,15 @@ class DBService {
     func createNewContact(contact: Contact) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let contactEntity = NSEntityDescription.entity(forEntityName: "ContactDB", in: managedContext)!
-        let contactDB = NSManagedObject(entity: contactEntity, insertInto: managedContext)
         
-        contactDB.setValue(contact.id, forKey: "id")
-        contactDB.setValue(contact.name, forKey: "name")
-        contactDB.setValue(contact.surName, forKey: "surname")
-        contactDB.setValue(contact.phone, forKey: "phone")
-        contactDB.setValue(contact.ringtone, forKey: "ringtone")
-        contactDB.setValue(contact.note, forKey: "note")
+        let contactDB2 = ContactDB(context: managedContext)
+        contactDB2.id = Int16(contact.id)
+        contactDB2.name = contact.name
+        contactDB2.surname = contact.surName
+        contactDB2.phone = contact.phone
+        contactDB2.ringtone = contact.ringtone
+        contactDB2.note = contact.note
+        contactDB2.image = contact.image?.pngData()
         
         do {
             try managedContext.save()
@@ -63,12 +63,13 @@ class DBService {
         
         do {
             let test = try managedContext.fetch(fetchRequest)
-            guard let contactUpdate = test[0] as? NSManagedObject else { return }
-            contactUpdate.setValue(contact.name, forKey: "name")
-            contactUpdate.setValue(contact.surName, forKey: "surname")
-            contactUpdate.setValue(contact.phone, forKey: "phone")
-            contactUpdate.setValue(contact.ringtone, forKey: "ringtone")
-            contactUpdate.setValue(contact.note, forKey: "note")
+            guard let contactUpdate = test[0] as? ContactDB else { return }
+            contactUpdate.name = contact.name
+            contactUpdate.surname = contact.surName
+            contactUpdate.phone = contact.phone
+            contactUpdate.ringtone = contact.ringtone
+            contactUpdate.note = contact.note
+            contactUpdate.image = contact.image?.pngData()
             
             do {
                 try managedContext.save()
@@ -102,11 +103,21 @@ class DBService {
     }
     
     private func convertContact(contact: ContactDB) -> Contact {
-        return Contact(id: Int(contact.id),
-                       name: contact.name ?? "",
-                       surName: contact.surname ?? "",
-                       phone: contact.phone ?? "",
-                       ringtone: contact.ringtone ?? "",
-                       note: contact.note ?? "")
+        if contact.image != nil {
+            return Contact(id: Int(contact.id),
+                           name: contact.name ?? "",
+                           surName: contact.surname ?? "",
+                           phone: contact.phone,
+                           image: UIImage(data: contact.image!),
+                           ringtone: contact.ringtone,
+                           note: contact.note)
+        } else {
+            return Contact(id: Int(contact.id),
+                           name: contact.name ?? "",
+                           surName: contact.surname ?? "",
+                           phone: contact.phone,
+                           ringtone: contact.ringtone,
+                           note: contact.note)
+        }
     }
 }
