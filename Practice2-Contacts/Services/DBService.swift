@@ -14,6 +14,10 @@ class DBService {
     
     var contacts: [Contact] = []
     
+    init() {
+        retrieveContacts()
+    }
+    
     func createNewContact(contact: Contact) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -48,6 +52,31 @@ class DBService {
             }
         } catch {
             print("Failed")
+        }
+    }
+    
+    func updateContact(contact: Contact) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Contact")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", "contact.id")
+        
+        do {
+            let test = try managedContext.fetch(fetchRequest)
+            guard let contactUpdate = test[0] as? NSManagedObject else { return }
+            contactUpdate.setValue(contact.name, forKey: "name")
+            contactUpdate.setValue(contact.surName, forKey: "surname")
+            contactUpdate.setValue(contact.phone, forKey: "phone")
+            contactUpdate.setValue(contact.ringtone, forKey: "ringtone")
+            contactUpdate.setValue(contact.note, forKey: "note")
+            contactUpdate.setValue(contact.image, forKey: "image")
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
         }
     }
     
