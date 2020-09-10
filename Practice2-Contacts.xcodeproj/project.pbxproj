@@ -207,8 +207,8 @@
 		CABF3E3024CC89200039C72B /* Practice2-Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				CA5B35132508963E00335C37 /* Services */,
 				CA427B15250215D00094DD36 /* Resources */,
+				CA5B35132508963E00335C37 /* Services */,
 				CA427B30250231D20094DD36 /* Models */,
 				CA427B2B25021FC10094DD36 /* Extensions */,
 				CA5B34FF25076AF400335C37 /* CreateContact */,

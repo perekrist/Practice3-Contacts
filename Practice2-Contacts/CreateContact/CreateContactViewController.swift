@@ -20,6 +20,7 @@ class CreateContactViewController: UIViewController {
     private var imagePicker: ImagePicker!
     private var avatarPicker = UIButton()
     private var phoneTextField = UITextField()
+    private var deleteButton = UIButton()
     
     private var ringtones: [String] = ["Default", "Duck", "Bark", "Piano", "Guitar"]
     
@@ -55,10 +56,12 @@ extension CreateContactViewController {
         view.backgroundColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
         navBarButtons()
         setupImagePicker()
+        setupButtons()
         setupConstraints()
         setupTextFields()
         setupPicker()
         setupLabels()
+        setupDeleteButtonContastrins()
         bindToViewModel()
     }
     
@@ -74,7 +77,20 @@ extension CreateContactViewController {
         } else {
             ringtoneTextField.text = viewModel.contact?.ringtone
         }
-        
+    }
+    
+    private func setupButtons() {
+        deleteButton.titleLabel?.text = R.string.createContact.deleteButtonTitle()
+//        deleteButton.titleLabel?.textColor = UIColor.red
+        deleteButton.titleLabel?.tintColor = UIColor.red
+        deleteButton.backgroundColor = UIColor.green
+        deleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func deleteButtonTapped() {
+        viewModel.deleteContact()
+        //go back to contact list
     }
     
     private func setupTextFields() {
@@ -151,6 +167,25 @@ extension CreateContactViewController {
         stact2.snp.makeConstraints { make in
             make.top.equalTo(ringtoneTextField.snp.bottom).offset(24)
             make.leading.equalTo(avatarPicker.snp.leading)
+        }
+    }
+    
+    private func setupDeleteButtonContastrins() {
+        view.addSubview(deleteButton)
+        if viewModel.contact == nil {
+            deleteButton.snp.makeConstraints { make in
+                make.bottom.equalTo(50)
+                make.centerX.equalTo(self.view)
+                make.height.equalTo(50)
+                make.width.equalTo(150)
+            }
+        } else {
+            deleteButton.snp.makeConstraints { make in
+                make.bottom.equalTo(-50)
+                make.centerX.equalTo(self.view)
+                make.height.equalTo(50)
+                make.width.equalTo(150)
+            }
         }
     }
     

@@ -35,6 +35,12 @@ class CreateContactViewModel {
         dbService.retrieveContacts()
     }
     
+    func deleteContact() {
+        guard let contact = contact else { return }
+        dbService.delteContact(contact: contact)
+        dbService.retrieveContacts()
+    }
+    
     func verifyContact(contact: Contact) -> Bool {
         if contact.name.isEmpty {
             return false
