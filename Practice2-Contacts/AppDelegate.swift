@@ -13,8 +13,23 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     lazy var appCoordinator: AppCoordinator = makeAppCoordinator()
+    
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        appCoordinator.start()
+        
+        return true
+    }
+    
+    private func makeAppCoordinator() -> AppCoordinator {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        return AppCoordinator(window: window)
+    }
+    
+    // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Contact")
+        let container = NSPersistentContainer(name: "CoreDataCRUD")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -34,18 +49,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
-    }
-    
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        appCoordinator.start()
-        
-        return true
-    }
-    
-    private func makeAppCoordinator() -> AppCoordinator {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
-        return AppCoordinator(window: window)
     }
 }
