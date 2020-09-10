@@ -31,14 +31,14 @@ class CreateContactCoordinator: Coordinator {
         rootViewController.pushViewController(viewController, animated: true)
     }
     
-    override func finish() {
-        delegate?.didFinish(from: self)
-    }
-    
-    func goToContact(contact: Contact) {
+    private func goToContact(contact: Contact) {
         let coordinator = ContactCoordinator(rootViewController: self.rootViewController, contact: contact)
         addChildCoordinator(coordinator)
         coordinator.start()
+    }
+    
+    private func close() {
+        delegate?.didFinish(from: self)
     }
 }
 
@@ -48,6 +48,6 @@ extension CreateContactCoordinator: CreateContactViewModelDelegate {
     }
     
     func createContactViewModelDidFinish(_ viewModel: CreateContactViewModel) {
-        finish()
+        close()
     }
 }

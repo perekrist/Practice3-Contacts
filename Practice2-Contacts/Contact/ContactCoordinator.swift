@@ -31,7 +31,7 @@ class ContactCoordinator: Coordinator {
         rootViewController.pushViewController(viewController, animated: true)
     }
     
-    override func finish() {
+    private func close() {
         delegate?.didFinish(from: self)
     }
     
@@ -48,6 +48,6 @@ extension ContactCoordinator: ContactViewModelDelegate {
     }
     
     func contactViewModelDidFinish(_ viewModel: ContactViewModel) {
-        finish()
+        close()
     }
 }
