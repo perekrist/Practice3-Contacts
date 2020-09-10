@@ -80,6 +80,27 @@ class DBService {
         }
     }
     
+    func delteContact(contact: Contact) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", "contact.id")
+        
+        do {
+            let test = try managedContext.fetch(fetchRequest)
+            guard let contactDelete = test[0] as? NSManagedObject else { return }
+            managedContext.delete(contactDelete)
+            
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     private func convertContact(contact: ContactDB) -> Contact {
         return Contact(name: contact.name ?? "",
                        surName: contact.name ?? "",
