@@ -80,11 +80,9 @@ extension CreateContactViewController {
     }
     
     private func setupButtons() {
-        deleteButton.titleLabel?.text = R.string.createContact.deleteButtonTitle()
-//        deleteButton.titleLabel?.textColor = UIColor.red
-        deleteButton.titleLabel?.tintColor = UIColor.red
-        deleteButton.backgroundColor = UIColor.green
-        deleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        deleteButton.setTitle(R.string.createContact.deleteButtonTitle(), for: .normal)
+        deleteButton.setTitleColor(.red, for: .normal)
+        deleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
