@@ -11,9 +11,11 @@ import CoreData
 import UIKit
 
 class DBService {
-    func saveNewContact(contact: Contact) {
+    
+    var contacts: [Contact] = []
+    
+    func createNewContact(contact: Contact) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         let managedContext = appDelegate.persistentContainer.viewContext
         let contactEntity = NSEntityDescription.entity(forEntityName: "Contact", in: managedContext)!
         let contactDB = NSManagedObject(entity: contactEntity, insertInto: managedContext)
@@ -30,5 +32,30 @@ class DBService {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+    }
+    
+    func retrieveContacts() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        contacts.removeAll()
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+        
+        do {
+            guard let result = try managedContext.fetch(fetchRequest) as? [NSManagedObject] else { return }
+            for data in result {
+                guard let contact = data as? ContactDB else { return }
+                contacts.append(convertContact(contact: contact))
+            }
+        } catch {
+            print("Failed")
+        }
+    }
+    
+    private func convertContact(contact: ContactDB) -> Contact {
+        return Contact(name: contact.name ?? "",
+                       surName: contact.name ?? "",
+                       phone: contact.name ?? "",
+                       ringtone: contact.ringtone ?? "",
+                       note: contact.note ?? "")
     }
 }
