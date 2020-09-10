@@ -17,9 +17,16 @@ protocol CreateContactViewModelDelegate: class {
 class CreateContactViewModel {
     weak var delegate: CreateContactViewModelDelegate?
     var contact: Contact?
+    private let dbService = DBService()
     
     init(contact: Contact?) {
         self.contact = contact
+    }
+    
+    func saveContact() {
+        guard let contact = contact else { return }
+        dbService.createNewContact(contact: contact)
+        dbService.retrieveContacts()
     }
     
     func verifyContact(contact: Contact) -> Bool {

@@ -16,10 +16,12 @@ protocol ContactsListViewModelDelegate: class {
 class ContactsListViewModel {
     weak var delegate: ContactsListViewModelDelegate?
     
+    private let dbService = DBService()
+
     private let sectionHeight: CGFloat = 28
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
-    private let contactService = ContactsService()
+//    private let contactService = ContactsService()
     
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray
@@ -43,7 +45,7 @@ class ContactsListViewModel {
     }
     
     func cellTitle(indexPath: IndexPath) -> NSAttributedString {
-        let sectionContacts = contactService.getContacts().filter { (contact: Contact) -> Bool in
+        let sectionContacts = dbService.contacts.filter { (contact: Contact) -> Bool in
             return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
         }
         let contact = sectionContacts[indexPath.row]
@@ -59,7 +61,7 @@ class ContactsListViewModel {
     }
     
     func goToContactView(indexPath: IndexPath) {
-        let sectionContacts = contactService.getContacts().filter { (contact: Contact) -> Bool in
+        let sectionContacts = dbService.contacts.filter { (contact: Contact) -> Bool in
             return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
         }
         let contact = sectionContacts[indexPath.row]
@@ -67,7 +69,7 @@ class ContactsListViewModel {
     }
     
     private func rowContactsCount(sectionName: String) -> Int {
-        return contactService.getContacts().filter { (contact: Contact) -> Bool in
+        return dbService.contacts.filter { (contact: Contact) -> Bool in
             contact.surName.starts(with: sectionName)
         }.count
     }

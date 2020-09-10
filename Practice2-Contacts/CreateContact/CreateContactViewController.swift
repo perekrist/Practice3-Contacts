@@ -28,7 +28,6 @@ class CreateContactViewController: UIViewController {
     private var noteTextField = UITextField()
     private var ringtoneTextField = UITextField(frame: CGRect.zero)
     
-    
     init(viewModel: CreateContactViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -197,6 +196,7 @@ extension CreateContactViewController {
             showError(R.string.createContact.emptyFieldsError())
         } else {
             viewModel.contact = contact
+            viewModel.saveContact()
             viewModel.goToContact()
         }
         

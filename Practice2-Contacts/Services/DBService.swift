@@ -11,7 +11,6 @@ import CoreData
 import UIKit
 
 class DBService {
-    
     var contacts: [Contact] = []
     
     init() {
@@ -21,7 +20,7 @@ class DBService {
     func createNewContact(contact: Contact) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let contactEntity = NSEntityDescription.entity(forEntityName: "Contact", in: managedContext)!
+        let contactEntity = NSEntityDescription.entity(forEntityName: "ContactDB", in: managedContext)!
         let contactDB = NSManagedObject(entity: contactEntity, insertInto: managedContext)
         
         contactDB.setValue(contact.name, forKey: "name")
@@ -29,7 +28,6 @@ class DBService {
         contactDB.setValue(contact.phone, forKey: "phone")
         contactDB.setValue(contact.ringtone, forKey: "ringtone")
         contactDB.setValue(contact.note, forKey: "note")
-        contactDB.setValue(contact.image, forKey: "image")
         
         do {
             try managedContext.save()
@@ -42,7 +40,7 @@ class DBService {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         contacts.removeAll()
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ContactDB")
         
         do {
             guard let result = try managedContext.fetch(fetchRequest) as? [NSManagedObject] else { return }
@@ -58,7 +56,7 @@ class DBService {
     func updateContact(contact: Contact) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Contact")
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "ContactDB")
         fetchRequest.predicate = NSPredicate(format: "id = %@", "contact.id")
         
         do {
@@ -69,7 +67,7 @@ class DBService {
             contactUpdate.setValue(contact.phone, forKey: "phone")
             contactUpdate.setValue(contact.ringtone, forKey: "ringtone")
             contactUpdate.setValue(contact.note, forKey: "note")
-            contactUpdate.setValue(contact.image, forKey: "image")
+            
             do {
                 try managedContext.save()
             } catch {
@@ -83,7 +81,7 @@ class DBService {
     func delteContact(contact: Contact) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ContactDB")
         fetchRequest.predicate = NSPredicate(format: "id = %@", "contact.id")
         
         do {
@@ -103,8 +101,8 @@ class DBService {
     
     private func convertContact(contact: ContactDB) -> Contact {
         return Contact(name: contact.name ?? "",
-                       surName: contact.name ?? "",
-                       phone: contact.name ?? "",
+                       surName: contact.surname ?? "",
+                       phone: contact.phone ?? "",
                        ringtone: contact.ringtone ?? "",
                        note: contact.note ?? "")
     }
