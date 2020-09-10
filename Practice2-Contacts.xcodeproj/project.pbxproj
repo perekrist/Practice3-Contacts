@@ -30,6 +30,8 @@
 		CA5B352825089E5000335C37 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352725089E5000335C37 /* ContactViewController.swift */; };
 		CA5B352A25089E5F00335C37 /* ContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352925089E5F00335C37 /* ContactCoordinator.swift */; };
 		CA5B352C2508BBCE00335C37 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352B2508BBCE00335C37 /* Divider.swift */; };
+		CA5B352F250A1D7000335C37 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352D250A1D7000335C37 /* Contact.xcdatamodeld */; };
+		CA5B3531250A209900335C37 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B3530250A209900335C37 /* DBService.swift */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -61,6 +63,8 @@
 		CA5B352725089E5000335C37 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		CA5B352925089E5F00335C37 /* ContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCoordinator.swift; sourceTree = "<group>"; };
 		CA5B352B2508BBCE00335C37 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		CA5B352E250A1D7000335C37 /* Contact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contact.xcdatamodel; sourceTree = "<group>"; };
+		CA5B3530250A209900335C37 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				CA427B31250231E40094DD36 /* Contact.swift */,
+				CA5B352D250A1D7000335C37 /* Contact.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				CA5B35142508965800335C37 /* ContactsService.swift */,
+				CA5B3530250A209900335C37 /* DBService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -392,6 +398,8 @@
 				CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */,
 				CA5B350D25076B3500335C37 /* InputAccessoryForTextFields.swift in Sources */,
 				CA5B350725076AF400335C37 /* CreateContactViewController.swift in Sources */,
+				CA5B352F250A1D7000335C37 /* Contact.xcdatamodeld in Sources */,
+				CA5B3531250A209900335C37 /* DBService.swift in Sources */,
 				CA5B350425076AF400335C37 /* ImagePicker.swift in Sources */,
 				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
@@ -586,6 +594,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CA5B352D250A1D7000335C37 /* Contact.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CA5B352E250A1D7000335C37 /* Contact.xcdatamodel */,
+			);
+			currentVersion = CA5B352E250A1D7000335C37 /* Contact.xcdatamodel */;
+			path = Contact.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CABF3E2624CC89200039C72B /* Project object */;
 }
