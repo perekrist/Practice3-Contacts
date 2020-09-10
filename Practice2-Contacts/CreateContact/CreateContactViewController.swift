@@ -197,7 +197,7 @@ extension CreateContactViewController {
             showError(R.string.createContact.emptyFieldsError())
         } else {
             viewModel.contact = contact
-            viewModel.goBack()
+            viewModel.goToContact()
         }
         
     }

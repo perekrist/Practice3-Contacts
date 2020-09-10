@@ -11,6 +11,7 @@ import UIKit
 
 protocol CreateContactViewModelDelegate: class {
     func createContactViewModelDidFinish(_ viewModel: CreateContactViewModel)
+    func createContactViewModelDidContactDone(contact: Contact)
 }
 
 class CreateContactViewModel {
@@ -30,5 +31,9 @@ class CreateContactViewModel {
     
     func goBack() {
         delegate?.createContactViewModelDidFinish(self)
+    }
+    
+    func goToContact() {
+        delegate?.createContactViewModelDidContactDone(contact: contact!)
     }
 }
