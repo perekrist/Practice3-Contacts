@@ -23,9 +23,15 @@ class CreateContactViewModel {
         self.contact = contact
     }
     
-    func saveContact() {
+    func createContact() {
         guard let contact = contact else { return }
         dbService.createNewContact(contact: contact)
+        dbService.retrieveContacts()
+    }
+    
+    func updateContact() {
+        guard let contact = contact else { return }
+        dbService.updateContact(contact: contact)
         dbService.retrieveContacts()
     }
     

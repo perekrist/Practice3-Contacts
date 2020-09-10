@@ -23,6 +23,7 @@ class DBService {
         let contactEntity = NSEntityDescription.entity(forEntityName: "ContactDB", in: managedContext)!
         let contactDB = NSManagedObject(entity: contactEntity, insertInto: managedContext)
         
+        contactDB.setValue(contact.id, forKey: "id")
         contactDB.setValue(contact.name, forKey: "name")
         contactDB.setValue(contact.surName, forKey: "surname")
         contactDB.setValue(contact.phone, forKey: "phone")
@@ -57,7 +58,8 @@ class DBService {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "ContactDB")
-        fetchRequest.predicate = NSPredicate(format: "id = %@", "contact.id")
+        let predicate = NSPredicate(format: "id = %@", NSNumber(integerLiteral: contact.id))
+        fetchRequest.predicate = predicate
         
         do {
             let test = try managedContext.fetch(fetchRequest)
@@ -82,7 +84,7 @@ class DBService {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ContactDB")
-        fetchRequest.predicate = NSPredicate(format: "id = %@", "contact.id")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", NSNumber(integerLiteral: contact.id))
         
         do {
             let test = try managedContext.fetch(fetchRequest)
@@ -100,7 +102,8 @@ class DBService {
     }
     
     private func convertContact(contact: ContactDB) -> Contact {
-        return Contact(name: contact.name ?? "",
+        return Contact(id: Int(contact.id),
+                       name: contact.name ?? "",
                        surName: contact.surname ?? "",
                        phone: contact.phone ?? "",
                        ringtone: contact.ringtone ?? "",

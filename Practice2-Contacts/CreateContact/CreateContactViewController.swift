@@ -67,8 +67,14 @@ extension CreateContactViewController {
         surNameTextField.text = viewModel.contact?.surName
         phoneTextField.text = viewModel.contact?.phone
         avatarPicker.imageView?.image = viewModel.contact?.image
-        ringtoneTextField.text = viewModel.contact?.ringtone
         noteTextField.text = viewModel.contact?.note
+        
+        if viewModel.contact?.ringtone?.isEmpty ?? true {
+            ringtoneTextField.text = ringtones[0]
+        } else {
+            ringtoneTextField.text = viewModel.contact?.ringtone
+        }
+        
     }
     
     private func setupTextFields() {
@@ -186,17 +192,31 @@ extension CreateContactViewController {
     }
     
     @objc func doneTapped() {
-        let contact = Contact(name: nameTextField.text!,
-                              surName: surNameTextField.text!,
-                              phone: phoneTextField.text!,
-                              image: avatarPicker.imageView?.image,
-                              ringtone: ringtoneTextField.text,
-                              note: noteTextField.text!)
-        if !viewModel.verifyContact(contact: contact) {
-            showError(R.string.createContact.emptyFieldsError())
+        if viewModel.contact == nil {
+            let contact = Contact(id: Int.random(in: 0..<100),
+                                  name: nameTextField.text!,
+                                  surName: surNameTextField.text!,
+                                  phone: phoneTextField.text!,
+                                  image: avatarPicker.imageView?.image,
+                                  ringtone: ringtoneTextField.text,
+                                  note: noteTextField.text!)
+            if !viewModel.verifyContact(contact: contact) {
+                showError(R.string.createContact.emptyFieldsError())
+            } else {
+                viewModel.contact = contact
+                viewModel.createContact()
+                viewModel.goToContact()
+            }
         } else {
+            let contact = Contact(id: viewModel.contact!.id,
+                                  name: nameTextField.text!,
+                                  surName: surNameTextField.text!,
+                                  phone: phoneTextField.text!,
+                                  image: avatarPicker.imageView?.image,
+                                  ringtone: ringtoneTextField.text,
+                                  note: noteTextField.text!)
             viewModel.contact = contact
-            viewModel.saveContact()
+            viewModel.updateContact()
             viewModel.goToContact()
         }
         

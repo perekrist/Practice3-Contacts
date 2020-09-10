@@ -25,7 +25,6 @@
 		CA5B350725076AF400335C37 /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B350325076AF400335C37 /* CreateContactViewController.swift */; };
 		CA5B350C25076B3500335C37 /* CreateContact.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA5B350925076B3500335C37 /* CreateContact.strings */; };
 		CA5B350D25076B3500335C37 /* InputAccessoryForTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B350A25076B3500335C37 /* InputAccessoryForTextFields.swift */; };
-		CA5B35152508965800335C37 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B35142508965800335C37 /* ContactsService.swift */; };
 		CA5B352625089E4300335C37 /* ContackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352525089E4300335C37 /* ContackViewModel.swift */; };
 		CA5B352825089E5000335C37 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352725089E5000335C37 /* ContactViewController.swift */; };
 		CA5B352A25089E5F00335C37 /* ContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352925089E5F00335C37 /* ContactCoordinator.swift */; };
@@ -58,7 +57,6 @@
 		CA5B350325076AF400335C37 /* CreateContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
 		CA5B350925076B3500335C37 /* CreateContact.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = CreateContact.strings; sourceTree = "<group>"; };
 		CA5B350A25076B3500335C37 /* InputAccessoryForTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAccessoryForTextFields.swift; sourceTree = "<group>"; };
-		CA5B35142508965800335C37 /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 		CA5B352525089E4300335C37 /* ContackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContackViewModel.swift; sourceTree = "<group>"; };
 		CA5B352725089E5000335C37 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		CA5B352925089E5F00335C37 /* ContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCoordinator.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 		CA5B35132508963E00335C37 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CA5B35142508965800335C37 /* ContactsService.swift */,
 				CA5B3530250A209900335C37 /* DBService.swift */,
 			);
 			path = Services;
@@ -392,7 +389,6 @@
 				CA427B24250219730094DD36 /* ContactsListViewModel.swift in Sources */,
 				CA5B352625089E4300335C37 /* ContackViewModel.swift in Sources */,
 				CA427B22250219660094DD36 /* ContactsListCoordinator.swift in Sources */,
-				CA5B35152508965800335C37 /* ContactsService.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,
 				CA427B26250219810094DD36 /* ContactsListViewController.swift in Sources */,
 				CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */,
