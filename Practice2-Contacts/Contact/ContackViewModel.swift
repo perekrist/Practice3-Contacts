@@ -1,5 +1,5 @@
 //
-//  ContackViewModel.swift
+//  ContactViewModel.swift
 //  Practice2-Contacts
 //
 //  Created by Кристина Перегудова on 09.09.2020.

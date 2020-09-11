@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol ContactCoordinatorOutput: class {
-    func didFinish(from coordinator: ContactCoordinator)
+protocol ContactCoordinatorDelegate: class {
+    func сontactCoordinatorDidFinish(_ coordinator: ContactCoordinator)
 }
 
 class ContactCoordinator: Coordinator {
-    weak var delegate: ContactCoordinatorOutput?
+    weak var delegate: ContactCoordinatorDelegate?
     
     private let rootViewController: UINavigationController
     private let contact: Contact
@@ -32,7 +32,7 @@ class ContactCoordinator: Coordinator {
     }
     
     private func close() {
-        delegate?.didFinish(from: self)
+        delegate?.сontactCoordinatorDidFinish(self)
     }
     
     func goToContactEdit() {
@@ -56,7 +56,6 @@ extension ContactCoordinator: ContactViewModelDelegate {
 extension ContactCoordinator: CreateContactCoordinatorOutput {
     func didFinish(from coordinator: CreateContactCoordinator) {
         removeChildCoordinator(coordinator)
-        rootViewController.dismiss(animated: true, completion: nil)
         rootViewController.popViewController(animated: true)
     }
 }

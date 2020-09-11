@@ -45,48 +45,61 @@ class ContactViewController: UIViewController {
 }
 
 extension ContactViewController {
-    func initialSetup() {
+    private func initialSetup() {
         view.backgroundColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
         navBarButtons()
         constraintsLayout()
         setupImageView()
         setupLabels()
-        bindToViewModel()
-    }
-    
-    private func bindToViewModel() {
-        nameLabel.text = viewModel.contact.name
-        surnameLabel.text = viewModel.contact.surName
-        
-        phoneLabel.text = viewModel.contact.phone ?? ""
-        ringtoneLabel.text = viewModel.contact.ringtone ?? "Default" //ringtones[0]
-        noteLabel.text = viewModel.contact.note ?? ""
-        avatarImageView.image = viewModel.contact.image
-        avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.width / 2
-        avatarImageView.clipsToBounds = true
     }
     
     private func setupImageView() {
+        avatarImageView.image = viewModel.contact.image
         avatarImageView.backgroundColor = UIColor.lightGray
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.width / 2
         avatarImageView.clipsToBounds = true
     }
     
     private func setupLabels() {
+        setupNameLabel()
+        setupSurnameLabel()
+        setupPhoneLabel()
+        setupRingtoneLabel()
+        setupNoteLabel()
+    }
+    
+    private func setupNameLabel() {
+        nameLabel.text = viewModel.contact.name
         nameLabel.font = nameLabel.font.withSize(30)
+    }
+    
+    private func setupSurnameLabel() {
+        surnameLabel.text = viewModel.contact.surName
         surnameLabel.font = surnameLabel.font.withSize(30)
+    }
+    
+    private func setupPhoneLabel() {
+        phoneLabel.text = viewModel.contact.phone ?? ""
+        phoneLabel.font = phoneLabel.font.withSize(17)
         
         phoneTopLabel.text = R.string.contact.phoneLAbel()
-        ringtoneTopLabel.text = R.string.contact.ringtoneLabel()
-        noteTopLabel.text = R.string.contact.noteLabel()
-        
         phoneTopLabel.font = phoneTopLabel.font.withSize(15)
-        ringtoneTopLabel.font = ringtoneTopLabel.font.withSize(15)
-        noteTopLabel.font = noteTopLabel.font.withSize(15)
-        
-        phoneLabel.font = phoneLabel.font.withSize(17)
+    }
+    
+    private func setupRingtoneLabel() {
+        ringtoneLabel.text = viewModel.contact.ringtone ?? "Default" //ringtones[0]
         ringtoneLabel.font = ringtoneLabel.font.withSize(17)
+        
+        ringtoneTopLabel.text = R.string.contact.ringtoneLabel()
+        ringtoneTopLabel.font = ringtoneTopLabel.font.withSize(15)
+    }
+    
+    private func setupNoteLabel() {
+        noteLabel.text = viewModel.contact.note ?? ""
         noteLabel.font = noteLabel.font.withSize(17)
+
+        noteTopLabel.text = R.string.contact.noteLabel()
+        noteTopLabel.font = noteTopLabel.font.withSize(15)
     }
     
     private func constraintsLayout() {
