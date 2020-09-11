@@ -16,7 +16,7 @@ extension UIViewController {
             
             var items: [UIBarButtonItem] = []
             if previousNextable {
-                let previousButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"),
+                let previousButton = UIBarButtonItem(image: UIImage(systemName: R.string.createContact.leftArrow()),
                                                      style: .plain, target: nil, action: nil)
                 previousButton.width = 30
                 if textField == textFields.first {
@@ -26,7 +26,7 @@ extension UIViewController {
                     previousButton.action = #selector(UITextField.becomeFirstResponder)
                 }
                 
-                let nextButton = UIBarButtonItem(image: UIImage(systemName: "chevron.right"),
+                let nextButton = UIBarButtonItem(image: UIImage(systemName: R.string.createContact.rightArrow()),
                                                  style: .plain, target: nil, action: nil)
                 nextButton.width = 30
                 if textField == textFields.last {

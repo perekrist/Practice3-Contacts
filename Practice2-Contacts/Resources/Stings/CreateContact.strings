@@ -16,3 +16,5 @@
 "surnamePlaceholder" = "Surname";
 "phonePlaceholder" = "8 (913) 113-13-14";
 "notePlaceholder" = "Type note there...";
+"leftArrow" = "chevron.left";
+"rightArrow" = "chevron.right";
