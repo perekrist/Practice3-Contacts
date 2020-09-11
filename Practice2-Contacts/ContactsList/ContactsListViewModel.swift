@@ -21,7 +21,6 @@ class ContactsListViewModel {
     private let sectionHeight: CGFloat = 28
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
-//    private let contactService = ContactsService()
     
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray

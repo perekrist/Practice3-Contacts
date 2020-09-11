@@ -69,7 +69,6 @@ extension CreateContactViewController {
         nameTextField.text = viewModel.contact?.name
         surNameTextField.text = viewModel.contact?.surName
         phoneTextField.text = viewModel.contact?.phone
-        avatarPicker.imageView?.image = viewModel.contact?.image
         noteTextField.text = viewModel.contact?.note
         
         if viewModel.contact?.ringtone?.isEmpty ?? true {
@@ -77,6 +76,8 @@ extension CreateContactViewController {
         } else {
             ringtoneTextField.text = viewModel.contact?.ringtone
         }
+        
+        self.setImage(image: viewModel.contact?.image)
     }
     
     private func setupButtons() {
@@ -206,16 +207,20 @@ extension CreateContactViewController {
         avatarPicker.addTarget(self, action: #selector(imagePickerTapped), for: .touchUpInside)
     }
     
-    private func setImage(image: UIImage) {
-        avatarPicker.setImage(image, for: .normal)
+    private func setImage(image: UIImage?) {
+        var image = image
+        if image == nil {
+            image = R.image.plus()
+        }
         avatarPicker.layer.cornerRadius = avatarPicker.bounds.size.width / 2
         avatarPicker.clipsToBounds = true
+        avatarPicker.setImage(image, for: .normal)
     }
 }
 
 extension CreateContactViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        self.setImage(image: image!)
+        self.setImage(image: image)
     }
 }
 
