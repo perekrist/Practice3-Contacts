@@ -45,6 +45,7 @@ extension ContactsListViewController {
                                                            action: nil)
         
         searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.addButton(),
@@ -62,7 +63,11 @@ extension ContactsListViewController {
 extension ContactsListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        guard !text.isEmpty else { return }
+        viewModel.search(with: text)
+        if !searchController.isActive {
+            viewModel.reloadData()
+        }
+        self.tableView.reloadData()
     }
 }
 
