@@ -53,8 +53,8 @@ extension ContactCoordinator: ContactViewModelDelegate {
     }
 }
 
-extension ContactCoordinator: CreateContactCoordinatorOutput {
-    func didFinish(from coordinator: CreateContactCoordinator) {
+extension ContactCoordinator: CreateContactCoordinatorDelegate {
+    func сreateContactCoordinatorDidFinish(_ coordinator: CreateContactCoordinator) {
         removeChildCoordinator(coordinator)
         rootViewController.popViewController(animated: true)
     }

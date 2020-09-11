@@ -37,17 +37,17 @@ class ContactsListCoordinator: Coordinator {
 }
 
 extension ContactsListCoordinator: ContactsListViewModelDelegate {
-    func contactsListViewModelDidContactTap(contact: Contact) {
+    func contactsListViewModel(_ viewModel: ContactsListViewModel, didSelectContact contact: Contact) {
         goToContact(contact: contact)
     }
     
-    func contactsListViewModelDidTapCreateContact() {
+    func contactsListViewModelDidTapCreateContact(_ viewModel: ContactsListViewModel) {
         goToContactCreation()
     }
 }
 
-extension ContactsListCoordinator: CreateContactCoordinatorOutput {
-    func didFinish(from coordinator: CreateContactCoordinator) {
+extension ContactsListCoordinator: CreateContactCoordinatorDelegate {
+    func сreateContactCoordinatorDidFinish(_ coordinator: CreateContactCoordinator) {
         removeChildCoordinator(coordinator)
         rootViewController.dismiss(animated: true, completion: nil)
         rootViewController.popToRootViewController(animated: true)

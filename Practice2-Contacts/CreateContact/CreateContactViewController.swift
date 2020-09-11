@@ -21,8 +21,6 @@ class CreateContactViewController: UIViewController {
     private var avatarPicker = UIButton()
     private var phoneTextField = UITextField()
     
-    private var ringtones: [String] = ["Default", "Duck", "Bark", "Piano", "Guitar"]
-    
     private var nameTextField = UITextField()
     private var surNameTextField = UITextField()
     private var noteTextField = UITextField()
@@ -64,31 +62,51 @@ extension CreateContactViewController {
     }
     
     private func bindToViewModel() {
-        nameTextField.text = viewModel.contact?.name
-        surNameTextField.text = viewModel.contact?.surName
-        phoneTextField.text = viewModel.contact?.phone
-        avatarPicker.imageView?.image = viewModel.contact?.image
-        ringtoneTextField.text = viewModel.contact?.ringtone
-        noteTextField.text = viewModel.contact?.note
+        viewModel.onDidError = { [weak self] error in
+            guard let self = self else { return }
+            self.showError(error)
+        }
     }
     
     private func setupTextFields() {
-        phoneTextField.keyboardType = .numberPad
         addInputAccessoryForTextFields(textFields: [nameTextField, surNameTextField,
                                                     phoneTextField, ringtoneTextField, noteTextField],
                                        dismissable: true, previousNextable: true)
-        
-        phoneTextField.placeholder = R.string.createContact.phonePlaceholder()
-        noteTextField.placeholder = R.string.createContact.notePlaceholder()
+        setupNameTextField()
+        setupSurnameTextField()
+        setupPhoneTextField()
+        setupRingtoneTextField()
+        setupNoteTextField()
+    }
+    
+    private func setupNameTextField() {
+        nameTextField.text = viewModel.contact?.name
         nameTextField.placeholder = R.string.createContact.namePlaceholder()
-        surNameTextField.placeholder = R.string.createContact.surnamePlaceholder()
-        
         nameTextField.font = UIFont.systemFont(ofSize: 16)
-        surNameTextField.font = UIFont.systemFont(ofSize: 16)
-        noteTextField.font = UIFont.systemFont(ofSize: 16)
-        
         nameTextField.addTarget(self, action: #selector(editName),
                                 for: UIControl.Event.editingChanged)
+    }
+    
+    private func setupSurnameTextField() {
+        surNameTextField.text = viewModel.contact?.surName
+        surNameTextField.placeholder = R.string.createContact.surnamePlaceholder()
+        surNameTextField.font = UIFont.systemFont(ofSize: 16)
+    }
+    
+    private func setupPhoneTextField() {
+        phoneTextField.text = viewModel.contact?.phone
+        phoneTextField.keyboardType = .numberPad
+        phoneTextField.placeholder = R.string.createContact.phonePlaceholder()
+    }
+    
+    private func setupRingtoneTextField() {
+        ringtoneTextField.text = viewModel.contact?.ringtone
+    }
+    
+    private func setupNoteTextField() {
+        noteTextField.text = viewModel.contact?.note
+        noteTextField.placeholder = R.string.createContact.notePlaceholder()
+        noteTextField.font = UIFont.systemFont(ofSize: 16)
     }
     
     private func setupLabels() {
@@ -161,6 +179,7 @@ extension CreateContactViewController {
     }
     
     private func setupImagePicker() {
+        avatarPicker.imageView?.image = viewModel.contact?.image
         avatarPicker.layer.cornerRadius = avatarPicker.bounds.size.width / 2
         avatarPicker.clipsToBounds = true
         avatarPicker.setImage(R.image.plus(), for: .normal)
@@ -187,19 +206,12 @@ extension CreateContactViewController {
     }
     
     @objc func doneTapped() {
-        let contact = Contact(name: nameTextField.text!,
+        viewModel.saveContact(name: nameTextField.text!,
                               surName: surNameTextField.text!,
-                              phone: phoneTextField.text!,
+                              phone: phoneTextField.text,
                               image: avatarPicker.imageView?.image,
                               ringtone: ringtoneTextField.text,
-                              note: noteTextField.text!)
-        if !viewModel.verifyContact(contact: contact) {
-            showError(R.string.createContact.emptyFieldsError())
-        } else {
-            viewModel.contact = contact
-            viewModel.goToContact()
-        }
-        
+                              note: noteTextField.text)
     }
     
     @objc private func imagePickerTapped(sender: UIButton) {
@@ -213,15 +225,15 @@ extension CreateContactViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return ringtones.count
+        return viewModel.ringtones.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ringtones[row]
+        return viewModel.ringtones[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        ringtoneTextField.text = ringtones[row]
+        ringtoneTextField.text = viewModel.ringtones[row]
     }
     
     private func setupPicker() {
@@ -229,6 +241,6 @@ extension CreateContactViewController: UIPickerViewDelegate, UIPickerViewDataSou
         ringtonePicker.dataSource = self
         
         ringtoneTextField.inputView = ringtonePicker
-        ringtoneTextField.text = ringtones[0]
+        ringtoneTextField.text = viewModel.ringtones[0]
     }
 }

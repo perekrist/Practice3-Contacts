@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ContactsListViewModelDelegate: class {
-    func contactsListViewModelDidTapCreateContact()
-    func contactsListViewModelDidContactTap(contact: Contact)
+    func contactsListViewModelDidTapCreateContact(_ viewModel: ContactsListViewModel)
+    func contactsListViewModel(_ viewModel: ContactsListViewModel, didSelectContact contact: Contact)
 }
 
 class ContactsListViewModel {
@@ -55,7 +55,7 @@ class ContactsListViewModel {
     }
     
     func goToContactCreation() {
-        delegate?.contactsListViewModelDidTapCreateContact()
+        delegate?.contactsListViewModelDidTapCreateContact(self)
     }
     
     func goToContactView(indexPath: IndexPath) {
@@ -63,7 +63,7 @@ class ContactsListViewModel {
             return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
         }
         let contact = sectionContacts[indexPath.row]
-        delegate?.contactsListViewModelDidContactTap(contact: contact)
+        delegate?.contactsListViewModel(self, didSelectContact: contact)
     }
     
     private func rowContactsCount(sectionName: String) -> Int {
