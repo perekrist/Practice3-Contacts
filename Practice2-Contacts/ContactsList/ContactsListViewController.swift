@@ -63,10 +63,9 @@ extension ContactsListViewController {
 extension ContactsListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        if !text.isEmpty {
-            viewModel.search(with: text)
-        } else {
-            viewModel.notSearching()
+        viewModel.search(with: text)
+        if !searchController.isActive {
+            viewModel.reloadData()
         }
         self.tableView.reloadData()
     }

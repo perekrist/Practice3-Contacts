@@ -12,19 +12,19 @@ class ContactsListViewModel {
     private let sectionHeight: CGFloat = 28
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
-        
+    
     private var contacts: [Contact] = [Contact(name: "Thomas", surName: "Anderson"),
-                               Contact(name: "Holden", surName: "Colfield"),
-                               Contact(name: "Abill", surName: "Baarda"),
-                               Contact(name: "Milton", surName: "Aaron"),
-                               Contact(name: "Pauline", surName: "Banister"),
-                               Contact(name: "Kristina", surName: "Leregudova"),
-                               Contact(name: "Holden", surName: "Folfield"),
-                               Contact(name: "Brill", surName: "Baarda"),
-                               Contact(name: "Milton", surName: "Xaron"),
-                               Contact(name: "Pauline", surName: "Sanister"),
-                               Contact(name: "Kristina", surName: "Peregudova"),
-                               Contact(name: "Maxim", surName: "Sachuk")]
+                                       Contact(name: "Holden", surName: "Colfield"),
+                                       Contact(name: "Abill", surName: "Baarda"),
+                                       Contact(name: "Milton", surName: "Aaron"),
+                                       Contact(name: "Pauline", surName: "Banister"),
+                                       Contact(name: "Kristina", surName: "Leregudova"),
+                                       Contact(name: "Holden", surName: "Folfield"),
+                                       Contact(name: "Brill", surName: "Baarda"),
+                                       Contact(name: "Milton", surName: "Xaron"),
+                                       Contact(name: "Pauline", surName: "Sanister"),
+                                       Contact(name: "Kristina", surName: "Peregudova"),
+                                       Contact(name: "Maxim", surName: "Sachuk")]
     private var filteredContacts: [Contact] = []
     
     init() {
@@ -33,12 +33,16 @@ class ContactsListViewModel {
     }
     
     func search(with query: String) {
-        filteredContacts = contacts.filter { (contact: Contact) -> Bool in
-            contact.name.contains(query) || contact.surName.contains(query)
+        if !query.isEmpty {
+            filteredContacts = contacts.filter { (contact: Contact) -> Bool in
+                contact.name.contains(query) || contact.surName.contains(query)
+            }
+        } else {
+            reloadData()
         }
     }
     
-    func notSearching() {
+    func reloadData() {
         filteredContacts = contacts
     }
     
