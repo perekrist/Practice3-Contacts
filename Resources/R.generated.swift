@@ -105,29 +105,96 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.info` struct is generated, and contains static references to 1 properties.
-  struct info {
-    struct uiApplicationSceneManifest {
-      static let _key = "UIApplicationSceneManifest"
-      static let uiApplicationSupportsMultipleScenes = false
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `addButton`.
+    static let addButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "addButton")
 
-      struct uiSceneConfigurations {
-        static let _key = "UISceneConfigurations"
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "addButton", bundle: ..., traitCollection: ...)`
+    static func addButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.addButton, compatibleWith: traitCollection)
+    }
+    #endif
 
-        struct uiWindowSceneSessionRoleApplication {
-          struct defaultConfiguration {
-            static let _key = "Default Configuration"
-            static let uiSceneConfigurationName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneConfigurationName") ?? "Default Configuration"
-            static let uiSceneDelegateClassName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneDelegateClassName") ?? "$(PRODUCT_MODULE_NAME).SceneDelegate"
-            static let uiSceneStoryboardFile = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneStoryboardFile") ?? "Main"
+    fileprivate init() {}
+  }
 
-            fileprivate init() {}
-          }
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  struct string {
+    /// This `R.string.common` struct is generated, and contains static references to 2 localization keys.
+    struct common {
+      /// Value: An error has occurred
+      static let errorTitle = Rswift.StringResource(key: "errorTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ok
+      static let okTitle = Rswift.StringResource(key: "okTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
 
-          fileprivate init() {}
+      /// Value: An error has occurred
+      static func errorTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("errorTitle", tableName: "Common", bundle: hostingBundle, comment: "")
         }
 
-        fileprivate init() {}
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "errorTitle"
+        }
+
+        return NSLocalizedString("errorTitle", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ok
+      static func okTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("okTitle", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "okTitle"
+        }
+
+        return NSLocalizedString("okTitle", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.contact` struct is generated, and contains static references to 1 localization keys.
+    struct contact {
+      /// Value: Contacts
+      static let bacButtonTitle = Rswift.StringResource(key: "bacButtonTitle", tableName: "Contact", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Contacts
+      static func bacButtonTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("bacButtonTitle", tableName: "Contact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Contact", preferredLanguages: preferredLanguages) else {
+          return "bacButtonTitle"
+        }
+
+        return NSLocalizedString("bacButtonTitle", tableName: "Contact", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.contactsList` struct is generated, and contains static references to 1 localization keys.
+    struct contactsList {
+      /// Value: Contacts
+      static let navBarTitle = Rswift.StringResource(key: "navBarTitle", tableName: "ContactsList", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Contacts
+      static func navBarTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("navBarTitle", tableName: "ContactsList", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "ContactsList", preferredLanguages: preferredLanguages) else {
+          return "navBarTitle"
+        }
+
+        return NSLocalizedString("navBarTitle", tableName: "ContactsList", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
