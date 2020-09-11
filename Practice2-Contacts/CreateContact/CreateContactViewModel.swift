@@ -12,14 +12,35 @@ import UIKit
 protocol CreateContactViewModelDelegate: class {
     func createContactViewModelDidFinish(_ viewModel: CreateContactViewModel)
     func createContactViewModelDidContactDone(contact: Contact)
+    func createContactViewModelDidGoToContactsList(_ viewModel: CreateContactViewModel)
 }
 
 class CreateContactViewModel {
     weak var delegate: CreateContactViewModelDelegate?
     var contact: Contact?
+    private let dbService = DBService()
     
     init(contact: Contact?) {
         self.contact = contact
+    }
+    
+    func createContact() {
+        guard let contact = contact else { return }
+        dbService.createNewContact(contact: contact)
+        dbService.retrieveContacts()
+    }
+    
+    func updateContact() {
+        guard let contact = contact else { return }
+        dbService.updateContact(contact: contact)
+        dbService.retrieveContacts()
+    }
+    
+    func deleteContact() {
+        guard let contact = contact else { return }
+        dbService.delteContact(contact: contact)
+        dbService.retrieveContacts()
+        goToContactList()
     }
     
     func verifyContact(contact: Contact) -> Bool {
@@ -35,5 +56,9 @@ class CreateContactViewModel {
     
     func goToContact() {
         delegate?.createContactViewModelDidContactDone(contact: contact!)
+    }
+    
+    private func goToContactList() {
+        delegate?.createContactViewModelDidGoToContactsList(self)
     }
 }

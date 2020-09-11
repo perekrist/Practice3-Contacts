@@ -20,6 +20,7 @@ class CreateContactViewController: UIViewController {
     private var imagePicker: ImagePicker!
     private var avatarPicker = UIButton()
     private var phoneTextField = UITextField()
+    private var deleteButton = UIButton()
     
     private var ringtones: [String] = ["Default", "Duck", "Bark", "Piano", "Guitar"]
     
@@ -27,7 +28,6 @@ class CreateContactViewController: UIViewController {
     private var surNameTextField = UITextField()
     private var noteTextField = UITextField()
     private var ringtoneTextField = UITextField(frame: CGRect.zero)
-    
     
     init(viewModel: CreateContactViewModel) {
         self.viewModel = viewModel
@@ -56,10 +56,12 @@ extension CreateContactViewController {
         view.backgroundColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
         navBarButtons()
         setupImagePicker()
+        setupButtons()
         setupConstraints()
         setupTextFields()
         setupPicker()
         setupLabels()
+        setupDeleteButtonContastrins()
         bindToViewModel()
     }
     
@@ -67,9 +69,26 @@ extension CreateContactViewController {
         nameTextField.text = viewModel.contact?.name
         surNameTextField.text = viewModel.contact?.surName
         phoneTextField.text = viewModel.contact?.phone
-        avatarPicker.imageView?.image = viewModel.contact?.image
-        ringtoneTextField.text = viewModel.contact?.ringtone
         noteTextField.text = viewModel.contact?.note
+        
+        if viewModel.contact?.ringtone?.isEmpty ?? true {
+            ringtoneTextField.text = ringtones[0]
+        } else {
+            ringtoneTextField.text = viewModel.contact?.ringtone
+        }
+        
+        self.setImage(image: viewModel.contact?.image)
+    }
+    
+    private func setupButtons() {
+        deleteButton.setTitle(R.string.createContact.deleteButtonTitle(), for: .normal)
+        deleteButton.setTitleColor(.red, for: .normal)
+        deleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func deleteButtonTapped() {
+        viewModel.deleteContact()
     }
     
     private func setupTextFields() {
@@ -149,6 +168,25 @@ extension CreateContactViewController {
         }
     }
     
+    private func setupDeleteButtonContastrins() {
+        view.addSubview(deleteButton)
+        if viewModel.contact == nil {
+            deleteButton.snp.makeConstraints { make in
+                make.bottom.equalTo(50)
+                make.centerX.equalTo(self.view)
+                make.height.equalTo(50)
+                make.width.equalTo(150)
+            }
+        } else {
+            deleteButton.snp.makeConstraints { make in
+                make.bottom.equalTo(-50)
+                make.centerX.equalTo(self.view)
+                make.height.equalTo(50)
+                make.width.equalTo(150)
+            }
+        }
+    }
+    
     private func navBarButtons() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
@@ -168,16 +206,17 @@ extension CreateContactViewController {
         avatarPicker.addTarget(self, action: #selector(imagePickerTapped), for: .touchUpInside)
     }
     
-    private func setImage(image: UIImage) {
-        avatarPicker.setImage(image, for: .normal)
+    private func setImage(image: UIImage?) {
+        guard let image = image else { return }
         avatarPicker.layer.cornerRadius = avatarPicker.bounds.size.width / 2
         avatarPicker.clipsToBounds = true
+        avatarPicker.setImage(image, for: .normal)
     }
 }
 
 extension CreateContactViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        self.setImage(image: image!)
+        self.setImage(image: image)
     }
 }
 
@@ -187,16 +226,31 @@ extension CreateContactViewController {
     }
     
     @objc func doneTapped() {
-        let contact = Contact(name: nameTextField.text!,
-                              surName: surNameTextField.text!,
-                              phone: phoneTextField.text!,
-                              image: avatarPicker.imageView?.image,
-                              ringtone: ringtoneTextField.text,
-                              note: noteTextField.text!)
-        if !viewModel.verifyContact(contact: contact) {
-            showError(R.string.createContact.emptyFieldsError())
+        if viewModel.contact == nil {
+            let contact = Contact(id: Int.random(in: 0..<100),
+                                  name: nameTextField.text!,
+                                  surName: surNameTextField.text!,
+                                  phone: phoneTextField.text!,
+                                  image: avatarPicker.imageView?.image,
+                                  ringtone: ringtoneTextField.text,
+                                  note: noteTextField.text!)
+            if !viewModel.verifyContact(contact: contact) {
+                showError(R.string.createContact.emptyFieldsError())
+            } else {
+                viewModel.contact = contact
+                viewModel.createContact()
+                viewModel.goToContact()
+            }
         } else {
+            let contact = Contact(id: viewModel.contact!.id,
+                                  name: nameTextField.text!,
+                                  surName: surNameTextField.text!,
+                                  phone: phoneTextField.text!,
+                                  image: avatarPicker.imageView?.image,
+                                  ringtone: ringtoneTextField.text,
+                                  note: noteTextField.text!)
             viewModel.contact = contact
+            viewModel.updateContact()
             viewModel.goToContact()
         }
         

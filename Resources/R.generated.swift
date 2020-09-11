@@ -263,7 +263,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.createContact` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.createContact` struct is generated, and contains static references to 11 localization keys.
     struct createContact {
       /// Value: 8 (913) 113-13-14
       static let phonePlaceholder = Rswift.StringResource(key: "phonePlaceholder", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -271,6 +271,8 @@ struct R: Rswift.Validatable {
       static let cancelTitle = Rswift.StringResource(key: "cancelTitle", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Choose photo
       static let choosePhotoTitle = Rswift.StringResource(key: "choosePhotoTitle", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Delete
+      static let deleteButtonTitle = Rswift.StringResource(key: "deleteButtonTitle", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Fill the name filed!
       static let emptyFieldsError = Rswift.StringResource(key: "emptyFieldsError", tableName: "CreateContact", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Name
@@ -323,6 +325,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("choosePhotoTitle", tableName: "CreateContact", bundle: bundle, comment: "")
+      }
+
+      /// Value: Delete
+      static func deleteButtonTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("deleteButtonTitle", tableName: "CreateContact", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "CreateContact", preferredLanguages: preferredLanguages) else {
+          return "deleteButtonTitle"
+        }
+
+        return NSLocalizedString("deleteButtonTitle", tableName: "CreateContact", bundle: bundle, comment: "")
       }
 
       /// Value: Fill the name filed!

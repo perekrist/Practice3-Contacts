@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Contact {
+    var id: Int
     var name: String
     var surName: String
     var phone: String?

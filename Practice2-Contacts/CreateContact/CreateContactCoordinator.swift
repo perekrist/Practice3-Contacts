@@ -10,6 +10,7 @@ import UIKit
 
 protocol CreateContactCoordinatorOutput: class {
     func didFinish(from coordinator: CreateContactCoordinator)
+    func didAllFinish(from coordinator: CreateContactCoordinator)
 }
 
 class CreateContactCoordinator: Coordinator {
@@ -40,9 +41,17 @@ class CreateContactCoordinator: Coordinator {
     private func close() {
         delegate?.didFinish(from: self)
     }
+    
+    private func closeAll() {
+        delegate?.didAllFinish(from: self)
+    }
 }
 
 extension CreateContactCoordinator: CreateContactViewModelDelegate {
+    func createContactViewModelDidGoToContactsList(_ viewModel: CreateContactViewModel) {
+        closeAll()
+    }
+    
     func createContactViewModelDidContactDone(contact: Contact) {
         goToContact(contact: contact)
     }
