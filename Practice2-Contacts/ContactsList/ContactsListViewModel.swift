@@ -20,6 +20,29 @@ class ContactsListViewModel {
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
     private let contactService = ContactsService()
+  
+    private var contacts: [Contact] = []
+    private var filteredContacts: [Contact] = []
+    
+    init() {
+        contacts.sort { $0.name < $1.name }
+        contacts = contactService.getContacts()
+        filteredContacts = contacts
+    }
+    
+    func search(with query: String) {
+        if !query.isEmpty {
+            filteredContacts = contacts.filter { (contact: Contact) -> Bool in
+                contact.name.contains(query) || contact.surName.contains(query)
+            }
+        } else {
+            reloadData()
+        }
+    }
+    
+    func reloadData() {
+        filteredContacts = contacts
+    }
     
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray
@@ -43,7 +66,7 @@ class ContactsListViewModel {
     }
     
     func cellTitle(indexPath: IndexPath) -> NSAttributedString {
-        let sectionContacts = contactService.getContacts().filter { (contact: Contact) -> Bool in
+        let sectionContacts = filteredContacts.filter { (contact: Contact) -> Bool in
             return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
         }
         let contact = sectionContacts[indexPath.row]
@@ -67,7 +90,7 @@ class ContactsListViewModel {
     }
     
     private func rowContactsCount(sectionName: String) -> Int {
-        return contactService.getContacts().filter { (contact: Contact) -> Bool in
+        return filteredContacts.filter { (contact: Contact) -> Bool in
             contact.surName.starts(with: sectionName)
         }.count
     }
