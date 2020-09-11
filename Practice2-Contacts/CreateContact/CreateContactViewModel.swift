@@ -12,6 +12,7 @@ import UIKit
 protocol CreateContactViewModelDelegate: class {
     func createContactViewModelDidFinish(_ viewModel: CreateContactViewModel)
     func createContactViewModelDidContactDone(contact: Contact)
+    func createContactViewModelDidGoToContactsList(_ viewModel: CreateContactViewModel)
 }
 
 class CreateContactViewModel {
@@ -39,6 +40,7 @@ class CreateContactViewModel {
         guard let contact = contact else { return }
         dbService.delteContact(contact: contact)
         dbService.retrieveContacts()
+        goToContactList()
     }
     
     func verifyContact(contact: Contact) -> Bool {
@@ -54,5 +56,9 @@ class CreateContactViewModel {
     
     func goToContact() {
         delegate?.createContactViewModelDidContactDone(contact: contact!)
+    }
+    
+    private func goToContactList() {
+        delegate?.createContactViewModelDidGoToContactsList(self)
     }
 }

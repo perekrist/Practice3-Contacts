@@ -89,7 +89,6 @@ extension CreateContactViewController {
     
     @objc private func deleteButtonTapped() {
         viewModel.deleteContact()
-        //go back to contact list
     }
     
     private func setupTextFields() {
@@ -208,10 +207,7 @@ extension CreateContactViewController {
     }
     
     private func setImage(image: UIImage?) {
-        var image = image
-        if image == nil {
-            image = R.image.plus()
-        }
+        guard let image = image else { return }
         avatarPicker.layer.cornerRadius = avatarPicker.bounds.size.width / 2
         avatarPicker.clipsToBounds = true
         avatarPicker.setImage(image, for: .normal)
