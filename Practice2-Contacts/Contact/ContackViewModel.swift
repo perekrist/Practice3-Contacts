@@ -22,6 +22,7 @@ class ContactViewModel {
     }
     
     func goBack() {
+        print("back")
         delegate?.contactViewModelDidFinish(self)
     }
     

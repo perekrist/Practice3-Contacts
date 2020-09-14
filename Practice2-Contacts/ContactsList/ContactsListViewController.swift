@@ -39,7 +39,7 @@ extension ContactsListViewController {
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = R.string.contactsList.navBarTitle()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: R.string.contact.bacButtonTitle(),
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: R.string.contact.backButtonTitle(),
                                                            style: .plain,
                                                            target: nil,
                                                            action: nil)

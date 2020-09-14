@@ -124,6 +124,10 @@ extension ContactViewController {
                                                             action: #selector(editTapped))
         navigationItem.rightBarButtonItem?.tintColor = UIColor.systemBlue
         navigationItem.backBarButtonItem?.tintColor = UIColor.systemBlue
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: R.string.contact.backButtonTitle(),
+//                                                           style: .plain,
+//                                                           target: self,
+//                                                           action: #selector(backTapped))
     }
     
     @objc func editTapped() {
