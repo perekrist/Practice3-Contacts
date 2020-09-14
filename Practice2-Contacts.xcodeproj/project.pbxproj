@@ -31,6 +31,8 @@
 		CA5B352A25089E5F00335C37 /* ContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352925089E5F00335C37 /* ContactCoordinator.swift */; };
 		CA5B352C2508BBCE00335C37 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352B2508BBCE00335C37 /* Divider.swift */; };
 		CA66E01C250F4A010014A13F /* Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66E01B250F4A010014A13F /* Rounded.swift */; };
+		CA66E028250F4E730014A13F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66E024250F4E720014A13F /* TPKeyboardAvoidingScrollView.m */; };
+		CA66E029250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66E027250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -63,6 +65,11 @@
 		CA5B352925089E5F00335C37 /* ContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCoordinator.swift; sourceTree = "<group>"; };
 		CA5B352B2508BBCE00335C37 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		CA66E01B250F4A010014A13F /* Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rounded.swift; sourceTree = "<group>"; };
+		CA66E023250F4E720014A13F /* Practice2-Contacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Practice2-Contacts-Bridging-Header.h"; sourceTree = "<group>"; };
+		CA66E024250F4E720014A13F /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		CA66E025250F4E720014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		CA66E026250F4E720014A13F /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		CA66E027250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +119,11 @@
 			children = (
 				CA427B16250215E20094DD36 /* Stings */,
 				CABF3E3A24CC89280039C72B /* Assets.xcassets */,
+				CA66E026250F4E720014A13F /* TPKeyboardAvoidingScrollView.h */,
+				CA66E024250F4E720014A13F /* TPKeyboardAvoidingScrollView.m */,
+				CA66E025250F4E720014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				CA66E027250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				CA66E023250F4E720014A13F /* Practice2-Contacts-Bridging-Header.h */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -259,6 +271,7 @@
 				TargetAttributes = {
 					CABF3E2D24CC89200039C72B = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -379,10 +392,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA66E028250F4E730014A13F /* TPKeyboardAvoidingScrollView.m in Sources */,
 				CA427B32250231E40094DD36 /* Contact.swift in Sources */,
 				CA5B350625076AF400335C37 /* CreateContactCoordinator.swift in Sources */,
 				CA5B350525076AF400335C37 /* CreateContactViewModel.swift in Sources */,
 				CA5B352A25089E5F00335C37 /* ContactCoordinator.swift in Sources */,
+				CA66E029250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */,
 				CA5B352825089E5000335C37 /* ContactViewController.swift in Sources */,
 				CA5B352C2508BBCE00335C37 /* Divider.swift in Sources */,
@@ -535,6 +550,7 @@
 			baseConfigurationReference = 76A224F2B5E4096FC17F670A /* Pods-Practice2-Contacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7NZPBTA9R6;
 				INFOPLIST_FILE = "Practice2-Contacts/Info.plist";
@@ -544,6 +560,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perekrist.Practice2-Contacts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Practice2-Contacts/Resources/Practice2-Contacts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,6 +572,7 @@
 			baseConfigurationReference = 8F2F188DB31B059103E305F1 /* Pods-Practice2-Contacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7NZPBTA9R6;
 				INFOPLIST_FILE = "Practice2-Contacts/Info.plist";
@@ -563,6 +582,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perekrist.Practice2-Contacts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Practice2-Contacts/Resources/Practice2-Contacts-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

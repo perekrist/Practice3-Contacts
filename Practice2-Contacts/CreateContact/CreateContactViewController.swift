@@ -26,6 +26,7 @@ class CreateContactViewController: UIViewController {
     private var noteTextField = UITextField()
     private var ringtoneTextField = UITextField(frame: CGRect.zero)
     
+    private var keyboardAvoidingView: UIScrollView = TPKeyboardAvoidingScrollView()
     
     init(viewModel: CreateContactViewModel) {
         self.viewModel = viewModel
@@ -51,7 +52,7 @@ class CreateContactViewController: UIViewController {
 
 extension CreateContactViewController {
     private func initialSetup() {
-        view.backgroundColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
+        setupView()
         navBarButtons()
         setupImagePicker()
         setupConstraints()
@@ -66,6 +67,11 @@ extension CreateContactViewController {
             guard let self = self else { return }
             self.showError(error)
         }
+    }
+    
+    private func setupView() {
+        view = keyboardAvoidingView
+        view.backgroundColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
     }
     
     private func setupTextFields() {
