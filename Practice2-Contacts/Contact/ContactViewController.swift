@@ -41,6 +41,7 @@ class ContactViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.9998722672, alpha: 1)
+        bindToViewModel()
     }
 }
 
@@ -124,10 +125,6 @@ extension ContactViewController {
                                                             action: #selector(editTapped))
         navigationItem.rightBarButtonItem?.tintColor = UIColor.systemBlue
         navigationItem.backBarButtonItem?.tintColor = UIColor.systemBlue
-//        navigationItem.backBarButtonItem = UIBarButtonItem(title: R.string.contact.backButtonTitle(),
-//                                                           style: .plain,
-//                                                           target: self,
-//                                                           action: #selector(backTapped))
     }
     
     @objc func editTapped() {
