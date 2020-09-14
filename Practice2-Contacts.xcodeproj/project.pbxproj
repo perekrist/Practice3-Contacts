@@ -30,6 +30,7 @@
 		CA5B352825089E5000335C37 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352725089E5000335C37 /* ContactViewController.swift */; };
 		CA5B352A25089E5F00335C37 /* ContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352925089E5F00335C37 /* ContactCoordinator.swift */; };
 		CA5B352C2508BBCE00335C37 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352B2508BBCE00335C37 /* Divider.swift */; };
+		CA66E01C250F4A010014A13F /* Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66E01B250F4A010014A13F /* Rounded.swift */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		CA5B352725089E5000335C37 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		CA5B352925089E5F00335C37 /* ContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCoordinator.swift; sourceTree = "<group>"; };
 		CA5B352B2508BBCE00335C37 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		CA66E01B250F4A010014A13F /* Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rounded.swift; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				CA5B350A25076B3500335C37 /* InputAccessoryForTextFields.swift */,
 				CA427B2C25021FD90094DD36 /* ErrorAlert.swift */,
 				CA5B352B2508BBCE00335C37 /* Divider.swift */,
+				CA66E01B250F4A010014A13F /* Rounded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				CA5B352C2508BBCE00335C37 /* Divider.swift in Sources */,
 				CA427B24250219730094DD36 /* ContactsListViewModel.swift in Sources */,
 				CA5B352625089E4300335C37 /* ContackViewModel.swift in Sources */,
+				CA66E01C250F4A010014A13F /* Rounded.swift in Sources */,
 				CA427B22250219660094DD36 /* ContactsListCoordinator.swift in Sources */,
 				CA5B35152508965800335C37 /* ContactsService.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,

@@ -126,8 +126,7 @@ extension CreateContactViewController {
         avatarPicker.snp.makeConstraints { make in
             make.top.equalTo(124)
             make.leading.equalTo(16)
-            make.height.equalTo(86)
-            make.width.equalTo(86)
+            make.height.width.equalTo(86)
         }
         
         view.addSubview(nameTextField)
@@ -180,17 +179,14 @@ extension CreateContactViewController {
     
     private func setupImagePicker() {
         avatarPicker.imageView?.image = viewModel.contact?.image
-        avatarPicker.layer.cornerRadius = avatarPicker.bounds.size.width / 2
-        avatarPicker.clipsToBounds = true
         avatarPicker.setImage(R.image.plus(), for: .normal)
         avatarPicker.setBackgroundImage(R.image.circule(), for: .normal)
+        avatarPicker.makeRounded()
         avatarPicker.addTarget(self, action: #selector(imagePickerTapped), for: .touchUpInside)
     }
     
     private func setImage(image: UIImage) {
         avatarPicker.setImage(image, for: .normal)
-        avatarPicker.layer.cornerRadius = avatarPicker.bounds.size.width / 2
-        avatarPicker.clipsToBounds = true
     }
 }
 

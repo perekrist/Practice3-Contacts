@@ -55,9 +55,7 @@ extension ContactViewController {
     
     private func setupImageView() {
         avatarImageView.image = viewModel.contact.image
-        avatarImageView.backgroundColor = UIColor.lightGray
-        avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.width / 2
-        avatarImageView.clipsToBounds = true
+        avatarImageView.makeRounded()
     }
     
     private func setupLabels() {
