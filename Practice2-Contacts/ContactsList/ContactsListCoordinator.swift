@@ -48,12 +48,16 @@ extension ContactsListCoordinator: ContactsListViewModelDelegate {
 }
 
 extension ContactsListCoordinator: CreateContactCoordinatorOutput {
+    func didFinish(from coordinator: CreateContactCoordinator, contact: Contact) {
+    }
+    
     func didAllFinish(from coordinator: CreateContactCoordinator) {
         removeChildCoordinator(coordinator)
         rootViewController.popToRootViewController(animated: true)
     }
     
     func didFinish(from coordinator: CreateContactCoordinator) {
+        print("finish")
         removeChildCoordinator(coordinator)
         rootViewController.popToRootViewController(animated: true)
     }

@@ -44,14 +44,20 @@ class ContactCoordinator: Coordinator {
 }
 
 extension ContactCoordinator: CreateContactCoordinatorOutput {
+    func didFinish(from coordinator: CreateContactCoordinator) {
+        removeChildCoordinator(coordinator)
+        rootViewController.popViewController(animated: true)
+    }
+    
     func didAllFinish(from coordinator: CreateContactCoordinator) {
         removeChildCoordinator(coordinator)
         rootViewController.popToRootViewController(animated: true)
     }
     
-    func didFinish(from coordinator: CreateContactCoordinator) {
+    func didFinish(from coordinator: CreateContactCoordinator, contact: Contact) {
+        self.viewModel.contact = contact
         removeChildCoordinator(coordinator)
-        rootViewController.popToRootViewController(animated: true)
+        rootViewController.popViewController(animated: true)
     }
 }
 

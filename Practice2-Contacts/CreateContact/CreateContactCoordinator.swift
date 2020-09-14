@@ -9,6 +9,7 @@
 import UIKit
 
 protocol CreateContactCoordinatorOutput: class {
+    func didFinish(from coordinator: CreateContactCoordinator, contact: Contact)
     func didFinish(from coordinator: CreateContactCoordinator)
     func didAllFinish(from coordinator: CreateContactCoordinator)
 }
@@ -33,9 +34,7 @@ class CreateContactCoordinator: Coordinator {
     }
     
     private func goToContact(contact: Contact) {
-        let coordinator = ContactCoordinator(rootViewController: self.rootViewController, contact: contact)
-        addChildCoordinator(coordinator)
-        coordinator.start()
+        delegate?.didFinish(from: self, contact: contact)
     }
     
     private func close() {
