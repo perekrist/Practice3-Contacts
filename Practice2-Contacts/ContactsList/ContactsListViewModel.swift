@@ -22,6 +22,10 @@ class ContactsListViewModel {
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
     
+    func updateContacts() {
+        dbService.retrieveContacts()
+    }
+    
     func sectionTitle(section: Int) -> String? {
         let sectionTitles = collation.sectionTitles as NSArray
         return sectionTitles.object(at: section) as? String

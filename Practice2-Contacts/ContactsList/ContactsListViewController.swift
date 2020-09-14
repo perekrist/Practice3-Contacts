@@ -27,6 +27,12 @@ class ContactsListViewController: UITableViewController {
         super.viewDidLoad()
         initialSetup()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.updateContacts()
+        self.tableView.reloadData()
+    }
 }
 
 extension ContactsListViewController {
