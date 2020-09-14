@@ -105,9 +105,6 @@ extension CreateContactViewController {
         nameTextField.font = UIFont.systemFont(ofSize: 16)
         surNameTextField.font = UIFont.systemFont(ofSize: 16)
         noteTextField.font = UIFont.systemFont(ofSize: 16)
-        
-        nameTextField.addTarget(self, action: #selector(editName),
-                                for: UIControl.Event.editingChanged)
     }
     
     private func setupLabels() {
@@ -116,10 +113,6 @@ extension CreateContactViewController {
         
         noteLabel.text = R.string.createContact.noteLabel()
         noteLabel.font = noteLabel.font.withSize(15)
-    }
-    
-    @objc private func editName() {
-        print(nameTextField.text!)
     }
     
     private func setupConstraints() {

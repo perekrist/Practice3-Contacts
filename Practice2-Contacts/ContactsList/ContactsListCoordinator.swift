@@ -49,21 +49,19 @@ extension ContactsListCoordinator: ContactsListViewModelDelegate {
 
 extension ContactsListCoordinator: CreateContactCoordinatorOutput {
     func didAllFinish(from coordinator: CreateContactCoordinator) {
-        print("did all finish")
         removeChildCoordinator(coordinator)
-        rootViewController.dismiss(animated: true, completion: nil)
         rootViewController.popToRootViewController(animated: true)
     }
     
     func didFinish(from coordinator: CreateContactCoordinator) {
         removeChildCoordinator(coordinator)
-        rootViewController.dismiss(animated: true, completion: nil)
+        rootViewController.popToRootViewController(animated: true)
     }
 }
 
 extension ContactsListCoordinator: ContactCoordinatorOutput {
     func didFinish(from coordinator: ContactCoordinator) {
         removeChildCoordinator(coordinator)
-        rootViewController.dismiss(animated: true, completion: nil)
+        rootViewController.popToViewController(rootViewController, animated: true)
     }
 }

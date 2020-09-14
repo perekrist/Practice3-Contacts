@@ -37,8 +37,21 @@ class ContactCoordinator: Coordinator {
     
     func goToContactEdit() {
         let coordinator = CreateContactCoordinator(rootViewController: self.rootViewController, contact: contact)
+        coordinator.delegate = self
         addChildCoordinator(coordinator)
         coordinator.start()
+    }
+}
+
+extension ContactCoordinator: CreateContactCoordinatorOutput {
+    func didAllFinish(from coordinator: CreateContactCoordinator) {
+        removeChildCoordinator(coordinator)
+        rootViewController.popToRootViewController(animated: true)
+    }
+    
+    func didFinish(from coordinator: CreateContactCoordinator) {
+        removeChildCoordinator(coordinator)
+        rootViewController.popToRootViewController(animated: true)
     }
 }
 

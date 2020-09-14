@@ -32,6 +32,7 @@ class DBService {
         
         do {
             try managedContext.save()
+            retrieveContacts()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -73,6 +74,7 @@ class DBService {
             
             do {
                 try managedContext.save()
+                retrieveContacts()
             } catch {
                 print(error)
             }
@@ -94,6 +96,7 @@ class DBService {
             
             do {
                 try managedContext.save()
+                retrieveContacts()
             } catch {
                 print(error)
             }
