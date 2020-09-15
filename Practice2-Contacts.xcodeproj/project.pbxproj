@@ -19,6 +19,20 @@
 		CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B2C25021FD90094DD36 /* ErrorAlert.swift */; };
 		CA427B2F25021FFA0094DD36 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA427B2E25021FF90094DD36 /* Common.strings */; };
 		CA427B32250231E40094DD36 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA427B31250231E40094DD36 /* Contact.swift */; };
+		CA5B350425076AF400335C37 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B350025076AF400335C37 /* ImagePicker.swift */; };
+		CA5B350525076AF400335C37 /* CreateContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B350125076AF400335C37 /* CreateContactViewModel.swift */; };
+		CA5B350625076AF400335C37 /* CreateContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B350225076AF400335C37 /* CreateContactCoordinator.swift */; };
+		CA5B350725076AF400335C37 /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B350325076AF400335C37 /* CreateContactViewController.swift */; };
+		CA5B350C25076B3500335C37 /* CreateContact.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA5B350925076B3500335C37 /* CreateContact.strings */; };
+		CA5B350D25076B3500335C37 /* InputAccessoryForTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B350A25076B3500335C37 /* InputAccessoryForTextFields.swift */; };
+		CA5B35152508965800335C37 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B35142508965800335C37 /* ContactsService.swift */; };
+		CA5B352625089E4300335C37 /* ContackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352525089E4300335C37 /* ContackViewModel.swift */; };
+		CA5B352825089E5000335C37 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352725089E5000335C37 /* ContactViewController.swift */; };
+		CA5B352A25089E5F00335C37 /* ContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352925089E5F00335C37 /* ContactCoordinator.swift */; };
+		CA5B352C2508BBCE00335C37 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B352B2508BBCE00335C37 /* Divider.swift */; };
+		CA66E01C250F4A010014A13F /* Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66E01B250F4A010014A13F /* Rounded.swift */; };
+		CA66E028250F4E730014A13F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66E024250F4E720014A13F /* TPKeyboardAvoidingScrollView.m */; };
+		CA66E029250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66E027250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF3E3124CC89200039C72B /* AppDelegate.swift */; };
 		CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3A24CC89280039C72B /* Assets.xcassets */; };
 		CABF3E3E24CC89280039C72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */; };
@@ -39,6 +53,23 @@
 		CA427B2C25021FD90094DD36 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		CA427B2E25021FF90094DD36 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		CA427B31250231E40094DD36 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CA5B350025076AF400335C37 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CA5B350125076AF400335C37 /* CreateContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactViewModel.swift; sourceTree = "<group>"; };
+		CA5B350225076AF400335C37 /* CreateContactCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactCoordinator.swift; sourceTree = "<group>"; };
+		CA5B350325076AF400335C37 /* CreateContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
+		CA5B350925076B3500335C37 /* CreateContact.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = CreateContact.strings; sourceTree = "<group>"; };
+		CA5B350A25076B3500335C37 /* InputAccessoryForTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAccessoryForTextFields.swift; sourceTree = "<group>"; };
+		CA5B35142508965800335C37 /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
+		CA5B352525089E4300335C37 /* ContackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContackViewModel.swift; sourceTree = "<group>"; };
+		CA5B352725089E5000335C37 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		CA5B352925089E5F00335C37 /* ContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCoordinator.swift; sourceTree = "<group>"; };
+		CA5B352B2508BBCE00335C37 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		CA66E01B250F4A010014A13F /* Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rounded.swift; sourceTree = "<group>"; };
+		CA66E023250F4E720014A13F /* Practice2-Contacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Practice2-Contacts-Bridging-Header.h"; sourceTree = "<group>"; };
+		CA66E024250F4E720014A13F /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		CA66E025250F4E720014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		CA66E026250F4E720014A13F /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		CA66E027250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		CABF3E2E24CC89200039C72B /* Practice2-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice2-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF3E3124CC89200039C72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABF3E3A24CC89280039C72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +119,11 @@
 			children = (
 				CA427B16250215E20094DD36 /* Stings */,
 				CABF3E3A24CC89280039C72B /* Assets.xcassets */,
+				CA66E026250F4E720014A13F /* TPKeyboardAvoidingScrollView.h */,
+				CA66E024250F4E720014A13F /* TPKeyboardAvoidingScrollView.m */,
+				CA66E025250F4E720014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				CA66E027250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				CA66E023250F4E720014A13F /* Practice2-Contacts-Bridging-Header.h */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -95,6 +131,7 @@
 		CA427B16250215E20094DD36 /* Stings */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B350925076B3500335C37 /* CreateContact.strings */,
 				CA427B2725021BF40094DD36 /* ContactsList.strings */,
 				CA427B2925021CAD0094DD36 /* Contact.strings */,
 				CA427B2E25021FF90094DD36 /* Common.strings */,
@@ -105,8 +142,8 @@
 		CA427B20250219430094DD36 /* ContactsList */ = {
 			isa = PBXGroup;
 			children = (
-				CA427B25250219810094DD36 /* ContactsListViewController.swift */,
 				CA427B23250219730094DD36 /* ContactsListViewModel.swift */,
+				CA427B25250219810094DD36 /* ContactsListViewController.swift */,
 				CA427B21250219660094DD36 /* ContactsListCoordinator.swift */,
 			);
 			path = ContactsList;
@@ -115,7 +152,10 @@
 		CA427B2B25021FC10094DD36 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B350A25076B3500335C37 /* InputAccessoryForTextFields.swift */,
 				CA427B2C25021FD90094DD36 /* ErrorAlert.swift */,
+				CA5B352B2508BBCE00335C37 /* Divider.swift */,
+				CA66E01B250F4A010014A13F /* Rounded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,6 +166,35 @@
 				CA427B31250231E40094DD36 /* Contact.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CA5B34FF25076AF400335C37 /* CreateContact */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B350025076AF400335C37 /* ImagePicker.swift */,
+				CA5B350125076AF400335C37 /* CreateContactViewModel.swift */,
+				CA5B350325076AF400335C37 /* CreateContactViewController.swift */,
+				CA5B350225076AF400335C37 /* CreateContactCoordinator.swift */,
+			);
+			path = CreateContact;
+			sourceTree = "<group>";
+		};
+		CA5B35132508963E00335C37 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B35142508965800335C37 /* ContactsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CA5B352425089E1B00335C37 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				CA5B352525089E4300335C37 /* ContackViewModel.swift */,
+				CA5B352725089E5000335C37 /* ContactViewController.swift */,
+				CA5B352925089E5F00335C37 /* ContactCoordinator.swift */,
+			);
+			path = Contact;
 			sourceTree = "<group>";
 		};
 		CABF3E2524CC89200039C72B = {
@@ -150,9 +219,12 @@
 		CABF3E3024CC89200039C72B /* Practice2-Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B35132508963E00335C37 /* Services */,
 				CA427B15250215D00094DD36 /* Resources */,
 				CA427B30250231D20094DD36 /* Models */,
 				CA427B2B25021FC10094DD36 /* Extensions */,
+				CA5B34FF25076AF400335C37 /* CreateContact */,
+				CA5B352425089E1B00335C37 /* Contact */,
 				CA427B20250219430094DD36 /* ContactsList */,
 				CABF3E3124CC89200039C72B /* AppDelegate.swift */,
 				CABF3E3C24CC89280039C72B /* LaunchScreen.storyboard */,
@@ -199,6 +271,7 @@
 				TargetAttributes = {
 					CABF3E2D24CC89200039C72B = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -230,6 +303,7 @@
 				CA427B2825021BF40094DD36 /* ContactsList.strings in Resources */,
 				CABF3E3B24CC89280039C72B /* Assets.xcassets in Resources */,
 				CA427B2A25021CAD0094DD36 /* Contact.strings in Resources */,
+				CA5B350C25076B3500335C37 /* CreateContact.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,13 +392,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA66E028250F4E730014A13F /* TPKeyboardAvoidingScrollView.m in Sources */,
 				CA427B32250231E40094DD36 /* Contact.swift in Sources */,
+				CA5B350625076AF400335C37 /* CreateContactCoordinator.swift in Sources */,
+				CA5B350525076AF400335C37 /* CreateContactViewModel.swift in Sources */,
+				CA5B352A25089E5F00335C37 /* ContactCoordinator.swift in Sources */,
+				CA66E029250F4E730014A13F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				CA427B1A250216280094DD36 /* AppCoordinator.swift in Sources */,
+				CA5B352825089E5000335C37 /* ContactViewController.swift in Sources */,
+				CA5B352C2508BBCE00335C37 /* Divider.swift in Sources */,
 				CA427B24250219730094DD36 /* ContactsListViewModel.swift in Sources */,
+				CA5B352625089E4300335C37 /* ContackViewModel.swift in Sources */,
+				CA66E01C250F4A010014A13F /* Rounded.swift in Sources */,
 				CA427B22250219660094DD36 /* ContactsListCoordinator.swift in Sources */,
+				CA5B35152508965800335C37 /* ContactsService.swift in Sources */,
 				CABF3E3224CC89200039C72B /* AppDelegate.swift in Sources */,
 				CA427B26250219810094DD36 /* ContactsListViewController.swift in Sources */,
 				CA427B2D25021FD90094DD36 /* ErrorAlert.swift in Sources */,
+				CA5B350D25076B3500335C37 /* InputAccessoryForTextFields.swift in Sources */,
+				CA5B350725076AF400335C37 /* CreateContactViewController.swift in Sources */,
+				CA5B350425076AF400335C37 /* ImagePicker.swift in Sources */,
 				CA427B18250216070094DD36 /* Coordinator.swift in Sources */,
 				CA427B14250215800094DD36 /* R.generated.swift in Sources */,
 			);
@@ -463,6 +550,7 @@
 			baseConfigurationReference = 76A224F2B5E4096FC17F670A /* Pods-Practice2-Contacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7NZPBTA9R6;
 				INFOPLIST_FILE = "Practice2-Contacts/Info.plist";
@@ -472,6 +560,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perekrist.Practice2-Contacts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Practice2-Contacts/Resources/Practice2-Contacts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -482,6 +572,7 @@
 			baseConfigurationReference = 8F2F188DB31B059103E305F1 /* Pods-Practice2-Contacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7NZPBTA9R6;
 				INFOPLIST_FILE = "Practice2-Contacts/Info.plist";
@@ -491,6 +582,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perekrist.Practice2-Contacts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Practice2-Contacts/Resources/Practice2-Contacts-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

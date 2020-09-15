@@ -8,27 +8,25 @@
 
 import UIKit
 
+protocol ContactsListViewModelDelegate: class {
+    func contactsListViewModelDidTapCreateContact(_ viewModel: ContactsListViewModel)
+    func contactsListViewModel(_ viewModel: ContactsListViewModel, didSelectContact contact: Contact)
+}
+
 class ContactsListViewModel {
+    weak var delegate: ContactsListViewModelDelegate?
+    
     private let sectionHeight: CGFloat = 28
     private let sectionCount: Int = 27
     private let collation = UILocalizedIndexedCollation.current()
-    
-    private var contacts: [Contact] = [Contact(name: "Thomas", surName: "Anderson"),
-                                       Contact(name: "Holden", surName: "Colfield"),
-                                       Contact(name: "Abill", surName: "Baarda"),
-                                       Contact(name: "Milton", surName: "Aaron"),
-                                       Contact(name: "Pauline", surName: "Banister"),
-                                       Contact(name: "Kristina", surName: "Leregudova"),
-                                       Contact(name: "Holden", surName: "Folfield"),
-                                       Contact(name: "Brill", surName: "Baarda"),
-                                       Contact(name: "Milton", surName: "Xaron"),
-                                       Contact(name: "Pauline", surName: "Sanister"),
-                                       Contact(name: "Kristina", surName: "Peregudova"),
-                                       Contact(name: "Maxim", surName: "Sachuk")]
+    private let contactService = ContactsService()
+  
+    private var contacts: [Contact] = []
     private var filteredContacts: [Contact] = []
     
     init() {
         contacts.sort { $0.name < $1.name }
+        contacts = contactService.getContacts()
         filteredContacts = contacts
     }
     
@@ -77,6 +75,18 @@ class ContactsListViewModel {
         attributedString.append(NSMutableAttributedString(string: contact.surName, attributes: attrs))
         
         return attributedString
+    }
+    
+    func goToContactCreation() {
+        delegate?.contactsListViewModelDidTapCreateContact(self)
+    }
+    
+    func goToContactView(indexPath: IndexPath) {
+        let sectionContacts = contactService.getContacts().filter { (contact: Contact) -> Bool in
+            return contact.surName.starts(with: sectionTitle(section: indexPath.section) ?? "A")
+        }
+        let contact = sectionContacts[indexPath.row]
+        delegate?.contactsListViewModel(self, didSelectContact: contact)
     }
     
     private func rowContactsCount(sectionName: String) -> Int {

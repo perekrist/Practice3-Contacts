@@ -43,6 +43,7 @@ extension ContactsListViewController {
                                                            style: .plain,
                                                            target: nil,
                                                            action: nil)
+        navigationItem.backBarButtonItem?.tintColor = UIColor.systemBlue
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -52,10 +53,11 @@ extension ContactsListViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(addContact))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.systemBlue
     }
     
     @objc func addContact() {
-        print("created")
+        viewModel.goToContactCreation()
     }
     
 }
@@ -100,6 +102,6 @@ extension ContactsListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        viewModel.goToContactView(indexPath: indexPath)
     }
 }
